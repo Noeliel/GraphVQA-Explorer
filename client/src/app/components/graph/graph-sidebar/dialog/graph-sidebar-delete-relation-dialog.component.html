@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>
+    Delete Relation '{{ data.from_obj_name }} is <b>{{ data.name }}</b>
+    {{ data.to_obj_name }}'?
+</h1>
+<div mat-dialog-content>
+    <p>This action can <b>not</b> be undone.</p>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onCancelClick()" cdkFocusInitial>Cancel</button>
+    <button mat-button (click)="onConfirmClick()">
+        <b>Confirm</b>
+    </button>
+</div>

@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Edit Relation</h1>
+<div mat-dialog-content>
+    <div style="width: 100%; margin-bottom: 10px; text-align: center">
+        <b>{{ data.from_obj_name }}</b> is
+    </div>
+    <div style="width: 100%; text-align: center">
+        <mat-form-field appearance="fill" style="width: 100%">
+            <mat-label>Relation Description</mat-label>
+            <input
+                matInput
+                [(ngModel)]="data.name"
+                [formControl]="nameControl"
+                [matAutocomplete]="nameAuto"
+            />
+            <mat-autocomplete autoActiveFirstOption #nameAuto="matAutocomplete">
+                <mat-option
+                    *ngFor="let option of filteredNameOptions | async"
+                    [value]="option"
+                >
+                    {{ option }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+    <div style="width: 100%; margin-top: 10px; text-align: center">
+        <b>
+            {{ data.to_obj_name }}
+        </b>
+    </div>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+        <b>Apply</b>
+    </button>
+</div>

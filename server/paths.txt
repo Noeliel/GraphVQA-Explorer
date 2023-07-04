@@ -1,0 +1,34 @@
+----- NEED TO SUPPLY -----
+
+dataset/
+    images/
+        {id}.jpg                    # gqa dataset scene image with id
+    scenegraphs/
+        train_sceneGraphs.json      # gqa dataset scene graph ground truth data (train split)
+        val_sceneGraphs.json        # gqa dataset scene graph ground truth data (eval split)
+        overlay_sceneGraphs.json    # scene graph ground truth data (user edits)
+    parameters/
+        gat/
+            checkpoint.pth          # gat model training data
+        gine/
+            checkpoint.pth          # gine model training data
+        gcn/
+            checkpoint.pth          # gcn model training data
+        lcgn/
+            checkpoint.pth          # lcgn model training data
+    evaluation/
+        val_balanced_questions.json # gqa dataset evaluation questions
+        gat/
+            evaluation_data.json    # gat model evaluation results
+        gine/
+            evaluation_data.json    # gine model evaluation results
+        gcn/
+            evaluation_data.json    # gcn model evaluation results
+        lcgn/
+            evaluation_data.json    # lcgn model evaluation results
+
+----- OUTPUTS; NO NEED TO SUPPLY -----
+
+outputdir/
+    gtsg.log                        # ground truth scene graph log
+

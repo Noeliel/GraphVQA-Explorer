@@ -1,0 +1,178 @@
+<div class="display-mode-element-container">
+    <mat-tab-group
+        animationDuration="0ms"
+        class="mat-tab-group-display-mode"
+        [(selectedIndex)]="tab"
+        style="background-color: #f5f5f5"
+    >
+        <mat-tab label="Ground Truth"
+            ><div class="display-mode-tab-small">
+                <div class="display-mode-tab-line">
+                    <mat-label class="leading-label">
+                        Edge Direction:
+                    </mat-label>
+                    <mat-button-toggle-group
+                        [(ngModel)]="
+                            ground_truth_display_mode_preferences.direction_indication
+                        "
+                        style="height: 20px"
+                        aria-label="Relation Direction Indicator"
+                        ><mat-button-toggle value="ThicknessDirectionIndicator"
+                            >Thickness</mat-button-toggle
+                        >
+                        <mat-button-toggle value="ArrowDirectionIndicator"
+                            >Arrows</mat-button-toggle
+                        >
+                    </mat-button-toggle-group>
+                    <mat-checkbox
+                        style="padding-left: 10px"
+                        [(ngModel)]="
+                            ground_truth_display_mode_preferences.show_object_labels
+                        "
+                    >
+                        Node Labels
+                    </mat-checkbox>
+                </div>
+                <div class="display-mode-tab-line">
+                    <mat-label class="leading-label">
+                        Node Hovering:
+                    </mat-label>
+                    <mat-checkbox
+                        [(ngModel)]="
+                            ground_truth_display_mode_preferences.show_hovering_incoming_edges
+                        "
+                        #tooltip="matTooltip"
+                        matTooltip="When hovering over a node in the graph, also show incoming relations and connected nodes."
+                        matTooltipPosition="below"
+                    >
+                        + Incoming Edges
+                    </mat-checkbox>
+                    <mat-checkbox
+                        style="padding-left: 10px"
+                        [(ngModel)]="
+                            ground_truth_display_mode_preferences.show_hovering_outgoing_edges
+                        "
+                        #tooltip="matTooltip"
+                        matTooltip="When hovering over a node in the graph, also show outgoing relations and connected nodes."
+                        matTooltipPosition="below"
+                    >
+                        + Outgoing Edges
+                    </mat-checkbox>
+                </div>
+                <div class="display-mode-tab-line">
+                    <mat-label class="leading-label">
+                        Element Hovering:
+                    </mat-label>
+                    <mat-checkbox
+                        [(ngModel)]="
+                            ground_truth_display_mode_preferences.show_hovering_tooltips
+                        "
+                        #tooltip="matTooltip"
+                        matTooltip="When hovering over an element in the graph, show a tooltip containing additional information on the element."
+                        matTooltipPosition="below"
+                    >
+                        Show Tooltips
+                    </mat-checkbox>
+                </div>
+            </div></mat-tab
+        >
+        <mat-tab label="Prediction"
+            ><div class="display-mode-tab-large">
+                <div class="display-mode-tab-line">
+                    <mat-label class="leading-label">
+                        Edge Direction:
+                    </mat-label>
+                    <mat-button-toggle-group
+                        [(ngModel)]="
+                            prediction_display_mode_preferences.direction_indication
+                        "
+                        style="height: 20px"
+                        aria-label="Relation Direction Indicator"
+                        ><mat-button-toggle value="ThicknessDirectionIndicator"
+                            >Thickness</mat-button-toggle
+                        >
+                        <mat-button-toggle value="ArrowDirectionIndicator"
+                            >Arrows</mat-button-toggle
+                        >
+                    </mat-button-toggle-group>
+                    <mat-checkbox
+                        style="padding-left: 10px"
+                        [(ngModel)]="
+                            prediction_display_mode_preferences.normalize_relation_opacity
+                        "
+                        #tooltip="matTooltip"
+                        matTooltip="Normalize opacity of edges. Improves visibility while reducing representativeness and cross-convolution comparability."
+                        matTooltipPosition="below"
+                    >
+                        Norm. Edges
+                    </mat-checkbox>
+                </div>
+                <div class="display-mode-tab-line">
+                    <mat-label class="leading-label">
+                        Node Hovering:
+                    </mat-label>
+                    <mat-checkbox
+                        [(ngModel)]="
+                            prediction_display_mode_preferences.show_hovering_incoming_edges
+                        "
+                        #tooltip="matTooltip"
+                        matTooltip="When hovering over a node in the graph, also show incoming relations and connected nodes."
+                        matTooltipPosition="below"
+                    >
+                        + Incoming Edges
+                    </mat-checkbox>
+                    <mat-checkbox
+                        style="padding-left: 10px"
+                        [(ngModel)]="
+                            prediction_display_mode_preferences.show_hovering_outgoing_edges
+                        "
+                        #tooltip="matTooltip"
+                        matTooltip="When hovering over a node in the graph, also show outgoing relations and connected nodes."
+                        matTooltipPosition="below"
+                    >
+                        + Outgoing Edges
+                    </mat-checkbox>
+                </div>
+                <div class="display-mode-tab-line">
+                    <mat-label class="leading-label">
+                        Element Hovering:
+                    </mat-label>
+                    <mat-checkbox
+                        [(ngModel)]="
+                            prediction_display_mode_preferences.show_hovering_tooltips
+                        "
+                        #tooltip="matTooltip"
+                        matTooltip="When hovering over an element in the graph, show a tooltip containing additional information on the element."
+                        matTooltipPosition="below"
+                    >
+                        Show Tooltips
+                    </mat-checkbox>
+                </div>
+                <div class="display-mode-tab-line">
+                    <mat-label class="leading-label">
+                        Node Weight (Gate):
+                    </mat-label>
+                    <mat-button-toggle-group
+                        [(ngModel)]="
+                            prediction_display_mode_preferences.node_weight_indication
+                        "
+                        style="height: 20px"
+                        aria-label="Node Weight Indicator"
+                        ><mat-button-toggle value="NodeWeightIndicatorRadius"
+                            >Radius</mat-button-toggle
+                        >
+                        <mat-button-toggle value="NodeWeightIndicatorArea"
+                            >Area</mat-button-toggle
+                        >
+                        <mat-button-toggle value="NodeWeightIndicatorOpacity"
+                            >Opacity</mat-button-toggle
+                        >
+                        <mat-button-toggle value="NodeWeightIndicatorNone"
+                            >Off</mat-button-toggle
+                        >
+                    </mat-button-toggle-group>
+                </div>
+            </div></mat-tab
+        >
+    </mat-tab-group>
+</div>

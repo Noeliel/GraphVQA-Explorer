@@ -1,0 +1,65 @@
+<div>
+    <mat-form-field class="panel-element" appearance="fill">
+        <mat-label>Selected Model</mat-label>
+        <mat-select [(value)]="qa_preferences.selected_model">
+            <mat-option value="gcn"
+                >Graph Convolutional Network (GraphVQA-GCN)</mat-option
+            >
+            <mat-option value="gine"
+                >Graph Isomorphism Network (GraphVQA-GINE)</mat-option
+            >
+            <mat-option value="gat"
+                >Graph Attention Network (GraphVQA-GAT)</mat-option
+            >
+            <mat-option value="lcgn"
+                >Language-Conditioned Graph Network (Baseline LCGN)</mat-option
+            >
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class="question-element-container">
+    <mat-form-field #qa_field class="panel-element" appearance="fill">
+        <mat-label *ngIf="qa_field._control.focused">Question</mat-label>
+        <mat-label *ngIf="!qa_field._control.focused">{{
+            qa_elem_title
+        }}</mat-label>
+        <input
+            matInput
+            #questionInput
+            [(ngModel)]="qa_question"
+            (keydown.enter)="poseQuestion(true)"
+            [formControl]="questionControl"
+            [matAutocomplete]="questionAuto"
+        />
+        <mat-autocomplete
+            #questionAuto="matAutocomplete"
+            (optionSelected)="onQuestionTokenSelected($event)"
+        >
+            <mat-option
+                *ngFor="let option of filteredQuestionOptions | async"
+                [value]="option"
+            >
+                {{ option }}
+            </mat-option>
+        </mat-autocomplete>
+        <div style="height: 10px"></div>
+        <mat-card>
+            <mat-card-subtitle
+                >Predicted answer(s) and confidence</mat-card-subtitle
+            >
+            <mat-card-title
+                style="text-align: center"
+                *ngFor="let prediction of displayed_qa_predictions"
+                >{{ prediction }}</mat-card-title
+            >
+            <mat-card-footer>
+                <mat-progress-bar
+                    #qa_progress_bar
+                    color="primary"
+                    mode="determinate"
+                    [style]="qa_progress_bar_style"
+                ></mat-progress-bar>
+            </mat-card-footer>
+        </mat-card>
+    </mat-form-field>
+</div>

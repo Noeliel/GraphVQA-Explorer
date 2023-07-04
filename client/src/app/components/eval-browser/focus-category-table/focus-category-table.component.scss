@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    border-bottom: 2px solid lightgrey !important;
+}
+
+.mat-header-cell,
+.mat-cell:not(.bar-cell) {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border-right: 1px solid lightgrey !important;
+}
+
+.bar-cell {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-right: 1px solid lightgrey !important;
+}
+
+.mat-paginator-sticky {
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    position: sticky;
+    z-index: 1;
+    margin-top: -1px;
+    border-top: 2px solid lightgrey;
+}
+
+.perf-bar {
+    display: block;
+    height: 100%;
+}
+
+.perf-bar-positive {
+    background-color: lime;
+}
+
+.perf-bar-negative {
+    background-color: red;
+}
+
+span.perf-bar:empty:before {
+    content: "\200b"; // unicode zero width space character
+}

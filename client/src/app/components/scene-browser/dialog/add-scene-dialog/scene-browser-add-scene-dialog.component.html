@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Add new Scene</h1>
+<div mat-dialog-content>
+    <form enctype="multipart/form-data" [formGroup]="formDoc">
+        <mat-form-field style="width: 100%">
+            <ngx-mat-file-input
+                formControlName="sceneImageFile"
+                placeholder="Required input"
+                valuePlaceholder="No scene image selected"
+                [accept]="'.jpg,.jpeg'"
+                required
+            ></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+            <mat-error
+                *ngIf="formDoc.get('sceneImageFile')?.hasError('required')"
+            >
+                Please select scene image
+            </mat-error>
+            <mat-error
+                *ngIf="
+                    formDoc.get('sceneImageFile')?.hasError('maxContentSize')
+                "
+            >
+                The total size must not exceed
+                {{
+                    formDoc.get("sceneImageFile")?.getError("maxContentSize")
+                        .maxSize | byteFormat
+                }}
+                ({{
+                    formDoc.get("sceneImageFile")?.getError("maxContentSize")
+                        .actualSize | byteFormat
+                }}).
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onCancelClick()" cdkFocusInitial>Cancel</button>
+    <button mat-button (click)="onConfirmClick()">
+        <b>Add</b>
+    </button>
+</div>

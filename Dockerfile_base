@@ -1,0 +1,35 @@
+FROM ubuntu:20.04
+
+ENV LC_ALL="C.UTF-8" \
+    LANG="C.UTF-8"
+
+RUN apt update; \
+    apt install -y ca-certificates curl bash
+
+RUN curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh; \
+    chmod +x Miniconda3-latest-Linux-x86_64.sh
+
+RUN bash /Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda3
+
+RUN rm Miniconda3-latest-Linux-x86_64.sh
+
+RUN eval "$(/root/miniconda3/bin/conda shell.bash hook)"; \
+    conda init; \
+    conda create -y -n gqavis python=3.6; \
+    conda activate gqavis; \
+    conda install -y pytorch==1.7.1 torchvision==0.8.2 torchtext=0.8.1 cudatoolkit=10.2 -c pytorch; \
+    conda install -y -c conda-forge spacy cupy; \
+    python -m spacy download en_core_web_sm; \
+    conda install -y -c anaconda nltk; \
+    python -c "import nltk; nltk.download('wordnet')"; \
+    pip install scipy; \
+    pip install --no-index torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.1+cu102.html; \
+    pip install --no-index torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.1+cu102.html; \
+    pip install --no-index torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.1+cu102.html; \
+    pip install --no-index torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.1+cu102.html; \
+    pip install torch-geometric==2.0.2; \
+    pip install matplotlib; \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash -; \
+    apt install -y nodejs tmux; \
+    conda clean -a -y; \
+    apt clean

@@ -1,0 +1,87 @@
+<div class="filter-element-container">
+    <mat-form-field #filter_field class="panel-element" appearance="fill">
+        <mat-label *ngIf="filter_field._control.focused"
+            >Element Filters</mat-label
+        >
+        <mat-label *ngIf="!filter_field._control.focused">{{
+            filter_elem_title
+        }}</mat-label>
+        <mat-chip-list #chipList aria-label="Filter selection">
+            <mat-chip
+                *ngFor="let filter of filters"
+                (removed)="removeFilter(filter)"
+            >
+                {{ filter.value }}
+                <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip>
+            <input
+                placeholder="Contains..."
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addFilter($event)"
+            />
+        </mat-chip-list>
+        <div class="mat-form-field-infix panel-element">
+            <div>
+                <mat-label class="leading-label">Filter By:</mat-label>
+                <mat-radio-group
+                    class="panel-element"
+                    aria-label="Match"
+                    appearance="fill"
+                    [(ngModel)]="selected_filter_type"
+                    [ngModelOptions]="{ standalone: true }"
+                >
+                    <mat-radio-button
+                        *ngFor="let filter_type of filter_types"
+                        [value]="filter_type"
+                    >
+                        {{ filter_type.toString() }}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div style="margin-top: 10px">
+                <mat-label class="leading-label">Options:</mat-label>
+                <mat-checkbox
+                    [(ngModel)]="filter_option_invert"
+                    #tooltip="matTooltip"
+                    matTooltip="Invert query results. Only show elements that don't match your criteria."
+                    matTooltipPosition="below"
+                >
+                    Invert
+                </mat-checkbox>
+                <mat-checkbox
+                    [(ngModel)]="filter_option_full_match"
+                    style="margin-left: 10px"
+                    #tooltip="matTooltip"
+                    matTooltip="Require perfect matching instead of returning results that include your query string."
+                    matTooltipPosition="below"
+                >
+                    Exact
+                </mat-checkbox>
+                <mat-checkbox
+                    *ngIf="selected_filter_type == filter_types[2]"
+                    [(ngModel)]="filter_option_include_relation_objects_out"
+                    style="margin-left: 10px"
+                    #tooltip="matTooltip"
+                    matTooltip="Include relations if their source object name matches your query. Disable to only match by relation name."
+                    matTooltipPosition="below"
+                >
+                    +Obj Out
+                </mat-checkbox>
+                <mat-checkbox
+                    *ngIf="selected_filter_type == filter_types[2]"
+                    [(ngModel)]="filter_option_include_relation_objects_inc"
+                    style="margin-left: 10px"
+                    #tooltip="matTooltip"
+                    matTooltip="Include relations if their target object name matches your query. Disable to only match by relation name."
+                    matTooltipPosition="below"
+                >
+                    +Obj Inc
+                </mat-checkbox>
+            </div>
+        </div>
+    </mat-form-field>
+</div>

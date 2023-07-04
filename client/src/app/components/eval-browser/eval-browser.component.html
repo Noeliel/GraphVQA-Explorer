@@ -1,0 +1,267 @@
+<div class="content-container">
+    <div #toolbar class="toolbar mat-elevation-z24">
+        <div style="display: flex">
+            <mat-form-field appearance="fill" style="flex: 0; min-width: 200px">
+                <mat-label>Model</mat-label>
+                <mat-select
+                    [(value)]="selected_model"
+                    (selectionChange)="requestData($event)"
+                    [disabled]="data_is_loading"
+                >
+                    <mat-option value="">Select Model</mat-option>
+                    <mat-option value="gcn"
+                        >Graph Convolutional Network (GraphVQA-GCN)</mat-option
+                    >
+                    <mat-option value="gine"
+                        >Graph Isomorphism Network (GraphVQA-GINE)</mat-option
+                    >
+                    <mat-option value="gat"
+                        >Graph Attention Network (GraphVQA-GAT)</mat-option
+                    >
+                    <mat-option value="lcgn"
+                        >Language-Conditioned Graph Network (Baseline
+                        LCGN)</mat-option
+                    >
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" style="flex: 0; min-width: 100px">
+                <mat-label>Split</mat-label>
+                <mat-select
+                    [(value)]="selected_split"
+                    (selectionChange)="requestData($event)"
+                    [disabled]="data_is_loading"
+                >
+                    <mat-option value="">-</mat-option>
+                    <mat-option value="val">val</mat-option>
+                    <mat-option value="train">train</mat-option>
+                    <mat-option value="test">test</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" style="width: 100%">
+                <mat-label>Filter Questions</mat-label>
+                <input
+                    matInput
+                    (keydown.enter)="applyQuestionFilter($event)"
+                    placeholder="Ex. 'strawberry', '0.7500', 'question : what & question : color & correct_1 : t', 'scene_id : 123', 'confidence_1 = 1'"
+                    [value]="questionFilterString"
+                    #filter_input
+                />
+            </mat-form-field>
+            <div
+                style="
+                    flex: 0;
+                    padding: 8px 0px 8px 8px;
+                    align-self: center;
+                    justify-self: center;
+                    background-color: #f5f5f5;
+                "
+            >
+                <mat-button-toggle-group
+                    #display0="matButtonToggleGroup"
+                    value="questions"
+                >
+                    <mat-button-toggle
+                        value="questions"
+                        aria-label="View questions"
+                        [disabled]="data_is_loading"
+                    >
+                        Display Questions
+                    </mat-button-toggle>
+                    <mat-button-toggle
+                        value="categories"
+                        aria-label="View categories"
+                        [disabled]="data_is_loading"
+                    >
+                        Display Focus Object Groups
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <div style="background-color: #f5f5f5">
+                <button
+                    mat-stroked-button
+                    (click)="exportVisibleTable()"
+                    style="background-color: #f5f5f5; height: 36px; margin: 8px"
+                    [disabled]="data_is_loading"
+                >
+                    <mat-icon>save</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div style="display: flex">
+            <div
+                *ngIf="display0?.value == 'questions'"
+                style="display: flex; flex: 1"
+            >
+                <mat-form-field
+                    appearance="fill"
+                    style="flex: 0; min-width: 300px"
+                >
+                    <mat-label>Visible Columns</mat-label>
+                    <mat-select
+                        [disabled]="data_is_loading"
+                        [formControl]="displayedQuestionColumns"
+                        multiple
+                    >
+                        <mat-option
+                            *ngFor="let column of availableQuestionColumns"
+                            [value]="column"
+                            >{{ column }}</mat-option
+                        >
+                    </mat-select>
+                </mat-form-field>
+                <div
+                    style="
+                        flex: 1;
+                        width: 100%;
+                        padding-top: 14px;
+                        padding-bottom: 6px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        background-color: #f5f5f5;
+                    "
+                >
+                    [ Model Accuracy for Split: {{ split_accuracy }} ] [ Model
+                    Accuracy for Filter Results: {{ filter_accuracy }} ]
+                </div>
+            </div>
+            <div
+                *ngIf="display0?.value == 'categories'"
+                style="display: flex; flex: 1"
+            >
+                <mat-form-field
+                    appearance="fill"
+                    style="flex: 0; min-width: 200px"
+                >
+                    <mat-label>Visible Columns</mat-label>
+                    <mat-select
+                        [disabled]="data_is_loading"
+                        [formControl]="displayedCategoryColumns"
+                        multiple
+                    >
+                        <mat-option
+                            *ngFor="let column of availableCategoryColumns"
+                            [value]="column"
+                            >{{ column }}</mat-option
+                        >
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field
+                    appearance="fill"
+                    style="flex: 0; min-width: 100px"
+                >
+                    <mat-label>Size</mat-label>
+                    <mat-select
+                        [(value)]="category_depth"
+                        (selectionChange)="setCategoryDepth($event)"
+                        [disabled]="data_is_loading"
+                    >
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                        <mat-option value="4">4</mat-option>
+                        <mat-option value="5">5</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill" style="width: 100%">
+                    <mat-label>Filter Object Groups</mat-label>
+                    <input
+                        matInput
+                        (keydown.enter)="applyCategoryFilter($event)"
+                        placeholder="Ex. 'strawberry', '0.7500', 'name = t-shirt'"
+                        [value]="categoryFilterString"
+                        #filter_input
+                    />
+                </mat-form-field>
+                <div
+                    style="
+                        flex: 0;
+                        padding: 8px;
+                        align-self: center;
+                        justify-self: center;
+                        background-color: #f5f5f5;
+                    "
+                >
+                    <mat-button-toggle-group
+                        #display1="matButtonToggleGroup"
+                        value="table"
+                    >
+                        <mat-button-toggle
+                            value="table"
+                            aria-label="View table"
+                            [disabled]="data_is_loading"
+                        >
+                            Table
+                        </mat-button-toggle>
+                        <mat-button-toggle
+                            value="plot"
+                            aria-label="View plot"
+                            [disabled]="data_is_loading || !plot_enabled"
+                        >
+                            {{
+                                plot_enabled
+                                    ? "Plot"
+                                    : "Plot unavailable (> 2000 Object Groups)"
+                            }}
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar-separator"></div>
+    </div>
+    <!-- container -->
+    <div
+        class="table mat-elevation-z8"
+        [style]="
+            'display: block;' + styleToDisplay(display0?.value == 'questions')
+        "
+    >
+        <div class="loading-shade" *ngIf="data_is_loading">
+            <mat-icon color="primary" [inline]="true" style="font-size: 200px"
+                >hourglass_empty</mat-icon
+            >
+        </div>
+        <question-table
+            #questionTable
+            [questionDataSource]="questionDataSource"
+        ></question-table>
+    </div>
+    <div
+        class="table mat-elevation-z8"
+        [style]="
+            'display: block;' +
+            styleToDisplay(
+                display0?.value == 'categories' && display1?.value == 'table'
+            )
+        "
+    >
+        <div class="loading-shade" *ngIf="data_is_loading">
+            <mat-icon color="primary" [inline]="true" style="font-size: 200px"
+                >hourglass_empty</mat-icon
+            >
+        </div>
+        <focus-category-table
+            #focusCategoryTable
+            [categoryDataSource]="categoryDataSource"
+        ></focus-category-table>
+    </div>
+    <div
+        class="table mat-elevation-z8"
+        [style]="
+            'display: block;' +
+            styleToDisplay(
+                display0?.value == 'categories' && display1?.value == 'plot'
+            )
+        "
+    >
+        <div class="loading-shade" *ngIf="data_is_loading">
+            <mat-icon color="primary" [inline]="true" style="font-size: 200px"
+                >hourglass_empty</mat-icon
+            >
+        </div>
+        <focus-category-plot
+            #focusCategoryPlot
+            [categoryDataSource]="categoryDataSource"
+        ></focus-category-plot>
+    </div>
+</div>

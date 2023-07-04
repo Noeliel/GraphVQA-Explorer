@@ -1,0 +1,69 @@
+<h1 mat-dialog-title>Edit Object #{{ data.id }}</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Object Name</mat-label>
+        <input
+            matInput
+            [(ngModel)]="data.name"
+            [formControl]="nameControl"
+            [matAutocomplete]="nameAuto"
+        />
+        <mat-autocomplete autoActiveFirstOption #nameAuto="matAutocomplete">
+            <mat-option
+                *ngFor="let option of filteredNameOptions | async"
+                [value]="option"
+            >
+                {{ option }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field #attributes_field appearance="fill" style="width: 100%">
+        <mat-label *ngIf="attributes_field._control.focused"
+            >Object Attributes</mat-label
+        >
+        <mat-label *ngIf="!attributes_field._control.focused">{{
+            data.attributes.length > 0
+                ? "Object Attributes"
+                : "Click to add attributes..."
+        }}</mat-label>
+        <mat-chip-list #chipList aria-label="Object Attributes">
+            <mat-chip
+                *ngFor="let attribute of data.attributes"
+                (removed)="onRemoveAttribute(attribute)"
+            >
+                {{ attribute }}
+                <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip>
+            <input
+                #attributeInput
+                placeholder="Add attribute..."
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="onAddAttribute($event)"
+                [formControl]="attributeControl"
+                [matAutocomplete]="attributeAuto"
+            />
+            <mat-autocomplete
+                autoActiveFirstOption
+                #attributeAuto="matAutocomplete"
+                (optionSelected)="onAttributeSelected($event)"
+            >
+                <mat-option
+                    *ngFor="let option of filteredAttributeOptions | async"
+                    [value]="option"
+                >
+                    {{ option }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-chip-list>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+        <b>Apply</b>
+    </button>
+</div>

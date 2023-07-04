@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/cdk/overlay-prebuilt.css";
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field-underline {
+    bottom: 0;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+.mat-tab-label {
+    // for display mode tab labels to fill horizontal space
+    height: 40px !important;
+    min-width: 0px !important;
+    padding: 0 0 0 0 !important;
+    width: 100% !important;
+}
+
+.mat-form-field-underline {
+    width: 0% !important;
+}
+
+.mat-form-field-wrapper {
+    height: 100%;
+}
+
+.mat-form-field-flex {
+    height: 100%;
+}
+
+.mat-select-panel {
+    max-height: 70vh !important;
+    max-width: 400px !important;
+}
+
+// ---

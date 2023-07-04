@@ -1,0 +1,30 @@
+FROM ubuntu:20.04
+
+RUN apt update; \
+    apt install -y ca-certificates curl build-essential; \
+    apt clean
+
+RUN echo "Downloading Rust toolchain..."
+
+RUN curl https://sh.rustup.rs -sSf > rustup-init.sh; \
+    chmod +x rustup-init.sh
+
+RUN /rustup-init.sh -y --profile minimal -t wasm32-unknown-unknown
+
+RUN rm rustup-init.sh
+
+RUN echo "Building and installing wasm-pack..."
+
+RUN . $HOME/.cargo/env; \
+    cargo install wasm-pack
+
+RUN echo "Building WASM module..."
+
+RUN mkdir -p /wasmbuild
+
+WORKDIR /wasmbuild/
+
+COPY client/src/app/services/wasm/module .
+
+RUN . $HOME/.cargo/env; \
+    wasm-pack build

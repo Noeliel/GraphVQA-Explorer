@@ -1,0 +1,7 @@
+- DisplayMode instances and their prefs subscriptions persist
+    -> the more different scenes you load (without properly refreshing the page), the more DisplayModes w/ their respective prefs subscriptions get set up
+    - potential fixes: change setup lifecycle?
+
+- Opacity-based weight display in PredictionDisplayMode conflicts with user-issued object popout in the element list
+    - i.e., if an object has low opacity, it remains invisible
+    - potential fixes: override the object popout in PredictionDisplayMode to handle an opacity change besides the radius change

@@ -1,0 +1,46 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner" style="z-index: 200">
+    <img
+        width="40"
+        alt="GQAVis Logo&nbsp;&nbsp;&nbsp;&nbsp;"
+        src="/assets/eye.png"
+    />
+    <span
+        ><a routerLink="" class="title toolbar-component-link">GQAVis</a></span
+    >
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+    <span
+        ><a
+            routerLink="/scenes"
+            routerLinkActive="toolbar-component-link-active"
+            class="title toolbar-component-link"
+            >Scenes</a
+        ></span
+    >
+    <span
+        ><a
+            routerLink="/evaluation"
+            routerLinkActive="toolbar-component-link-active"
+            class="title toolbar-component-link"
+            >Evaluation</a
+        ></span
+    >
+    <div class="spacer"></div>
+    <!--
+    <a
+        aria-label="GQAVis on GitHub"
+        target="_blank"
+        rel="noopener"
+        href="https://github.com/"
+        title="GQAVis on GitHub"
+    >
+        <img id="github-logo" height="30" src="assets/github-icon.svg" />
+    </a>
+    -->
+</div>
+
+<div class="content" role="main">
+    <router-outlet></router-outlet>
+</div>

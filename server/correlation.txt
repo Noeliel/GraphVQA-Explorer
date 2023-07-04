@@ -1,0 +1,42 @@
+Analyzing token_count_node_rank
+> Spearman rank-order correlation coefficient
+null hypothesis: no correlation
+alternative hypothesis: nonzero correlation
+statistic: -0.9771929824561404
+p: 7.06769744556743e-13
+-> Based on result, reject null hypothesis.
+> Pearson correlation coefficient
+null hypothesis: no correlation
+alternative hypothesis: nonzero correlation
+statistic: -0.9626265233451233
+p: 4.4770479701967856e-11
+-> Based on result, reject null hypothesis.
+
+Analyzing question_cooc_node_rank
+> Spearman rank-order correlation coefficient
+null hypothesis: no correlation
+alternative hypothesis: nonzero correlation
+statistic: -0.987719298245614
+p: 3.79790243650229e-15
+-> Based on result, reject null hypothesis.
+> Pearson correlation coefficient
+null hypothesis: no correlation
+alternative hypothesis: nonzero correlation
+statistic: -0.9244554217957988
+p: 1.555885054529779e-08
+-> Based on result, reject null hypothesis.
+
+Analyzing prediction_cooc_node_rank
+> Spearman rank-order correlation coefficient
+null hypothesis: no correlation
+alternative hypothesis: nonzero correlation
+statistic: -0.9912280701754386
+p: 2.200851783163643e-16
+-> Based on result, reject null hypothesis.
+> Pearson correlation coefficient
+null hypothesis: no correlation
+alternative hypothesis: nonzero correlation
+statistic: -0.9166888208185056
+p: 3.479575420263467e-08
+-> Based on result, reject null hypothesis.
+

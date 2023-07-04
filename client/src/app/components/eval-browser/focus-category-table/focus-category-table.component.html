@@ -1,0 +1,190 @@
+<table
+    mat-table
+    [dataSource]="categoryDataSource"
+    matSort
+    #category_sort="matSort"
+    matTableExporter
+    #exporter="matTableExporter"
+>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>name</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+    </ng-container>
+
+    <!-- Frequency Column -->
+    <ng-container matColumnDef="frequency_total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            frequency_total
+        </th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.frequency_total }}
+        </td>
+    </ng-container>
+
+    <!-- Correct Instance Frequency Column -->
+    <ng-container matColumnDef="frequency_pos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>frequency_pos</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.frequency_pos }}
+        </td>
+    </ng-container>
+
+    <!-- Incorrect Instance Frequency Column -->
+    <ng-container matColumnDef="frequency_neg">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>frequency_neg</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.frequency_neg }}
+        </td>
+    </ng-container>
+
+    <!-- Avg Weight Column -->
+    <ng-container matColumnDef="weight_avg_total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            weight_avg_total
+        </th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_avg_total">
+            {{ processFractionForDisplay(row.weight_avg_total) }}
+        </td>
+    </ng-container>
+
+    <!-- Correct Instance Avg Weight Column -->
+    <ng-container matColumnDef="weight_avg_pos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            weight_avg_pos
+        </th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_avg_pos">
+            {{ processFractionForDisplay(row.weight_avg_pos) }}
+        </td>
+    </ng-container>
+
+    <!-- Incorrect Instance Avg Weight Column -->
+    <ng-container matColumnDef="weight_avg_neg">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            weight_avg_neg
+        </th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_avg_neg">
+            {{ processFractionForDisplay(row.weight_avg_neg) }}
+        </td>
+    </ng-container>
+
+    <!-- Normalized Net Performance Column -->
+    <ng-container matColumnDef="performance_norm_net">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            performance_norm_net
+        </th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.performance_norm_net }}
+        </td>
+    </ng-container>
+
+    <!-- Softmaxed Normalized Net Performance Column -->
+    <ng-container matColumnDef="performance_norm_smax_net">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            performance_norm_smax_net
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [title]="row.performance_norm_smax_net"
+        >
+            {{ processFractionForDisplay(row.performance_norm_smax_net) }}
+        </td>
+    </ng-container>
+
+    <!-- Normalized Positive Performance Column -->
+    <ng-container matColumnDef="performance_norm_pos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            performance_norm_pos
+        </th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.performance_norm_pos }}
+        </td>
+    </ng-container>
+
+    <!-- Softmaxed Normalized Positive Performance Column -->
+    <ng-container matColumnDef="performance_norm_smax_pos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            performance_norm_smax_pos
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [title]="row.performance_norm_smax_pos"
+        >
+            {{ processFractionForDisplay(row.performance_norm_smax_pos) }}
+        </td>
+    </ng-container>
+
+    <!-- Balanced Performance Column -->
+    <ng-container matColumnDef="performance_plot">
+        <th mat-header-cell *matHeaderCellDef>performance_plot</th>
+        <td class="bar-cell" mat-cell *matCellDef="let row">
+            <table style="width: 100%; height: 100%; border-collapse: collapse">
+                <td
+                    align="right"
+                    style="width: 50%; height: 100%; border: none"
+                >
+                    <span
+                        class="perf-bar perf-bar-positive"
+                        [style]="processBarWidth(row.performance_norm_pos)"
+                    ></span>
+                </td>
+                <td align="left" style="width: 50%; height: 100%; border: none">
+                    <span
+                        class="perf-bar perf-bar-negative"
+                        [style]="processBarWidth(row.performance_norm_neg)"
+                    ></span>
+                </td>
+            </table>
+        </td>
+    </ng-container>
+
+    <!-- Normalized Negative Performance Column -->
+    <ng-container matColumnDef="performance_norm_neg">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            performance_norm_neg
+        </th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.performance_norm_neg }}
+        </td>
+    </ng-container>
+
+    <!-- Softmaxed Normalized Negative Performance Column -->
+    <ng-container matColumnDef="performance_norm_smax_neg">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            performance_norm_smax_neg
+        </th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [title]="row.performance_norm_smax_neg"
+        >
+            {{ processFractionForDisplay(row.performance_norm_smax_neg) }}
+        </td>
+    </ng-container>
+
+    <tr
+        mat-header-row
+        *matHeaderRowDef="preferences.displayed_category_columns; sticky: true"
+    ></tr>
+    <tr
+        mat-row
+        *matRowDef="let row; columns: preferences.displayed_category_columns"
+    ></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+            No data matching the filter criteria
+        </td>
+    </tr>
+</table>
+
+<mat-paginator
+    #category_paginator="matPaginator"
+    class="mat-paginator-sticky"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[10, 20, 50, 100, 250, 500]"
+    aria-label="Select page of categories"
+></mat-paginator>

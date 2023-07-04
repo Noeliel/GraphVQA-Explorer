@@ -1,0 +1,323 @@
+diff --git a/Constants.py b/Constants.py
+index 6eb7bd5..15a4d85 100755
+--- a/Constants.py
++++ b/Constants.py
+@@ -10,7 +10,7 @@ import numpy as np
+ 
+ 
+ # directory constants
+-ROOT_DIR = pathlib.Path('/home/weixin/neuralPoolTest/')
++ROOT_DIR = pathlib.Path('/gqavis/server')
+ 
+ #  specials = list(OrderedDict.fromkeys(
+             # tok for tok in [self.unk_token, self.pad_token, self.init_token,
+diff --git a/baseline_and_test_models/pipeline_model_gcn.py b/baseline_and_test_models/pipeline_model_gcn.py
+index cdb092b..472dab4 100644
+--- a/baseline_and_test_models/pipeline_model_gcn.py
++++ b/baseline_and_test_models/pipeline_model_gcn.py
+@@ -9,9 +9,9 @@ from torch.nn import Sequential as Seq, Linear as Lin, ReLU
+ from torch_scatter import scatter_mean, scatter_add
+ import logging
+ import torch_geometric
+-from gqa_dataset_entry import GQATorchDataset
++from GraphVQA.gqa_dataset_entry import GQATorchDataset
+ 
+-from graph_utils import my_graph_layernorm
++from GraphVQA.graph_utils import my_graph_layernorm
+ 
+ 
+ import torch.nn.functional as F
+@@ -181,7 +181,7 @@ class MyConditionalGlobalAttention(torch.nn.Module):
+         gate = torch_geometric.utils.softmax(gate, batch, num_nodes=size)
+         out = scatter_add(gate * x, batch, dim=0, dim_size=size)
+ 
+-        return out
++        return (out, gate.squeeze().tolist())
+ 
+     def __repr__(self):
+         return '{}(gate_nn={}, node_nn={}, ques_nn={})'.format(self.__class__.__name__,
+@@ -556,7 +556,7 @@ class TransformerQuestionEncoder(torch.nn.Module):
+ class GroundTruth_SceneGraph_Encoder(torch.nn.Module):
+     def __init__(self):
+         super(GroundTruth_SceneGraph_Encoder, self).__init__()
+-        from gqa_dataset_entry import GQA_gt_sg_feature_lookup
++        from GraphVQA.gqa_dataset_entry import GQA_gt_sg_feature_lookup
+         sg_TEXT = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT
+         sg_vocab = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT.vocab
+ 
+@@ -860,7 +860,7 @@ class PipelineModel(torch.nn.Module):
+         # (batch_size, channels)
+         ##################################
+         global_language_feature = questions_encoded[0] # should be changed when completing NEM
+-        graph_final_feature = self.graph_global_attention_pooling(
++        graph_final_feature, graph_gate = self.graph_global_attention_pooling(
+             x = x_executed, # x=x_encoded,
+             u = global_language_feature,
+             batch = gt_scene_graphs.batch,
+@@ -881,7 +881,7 @@ class PipelineModel(torch.nn.Module):
+ 
+ 
+ 
+-        return programs_output, short_answer_logits
++        return programs_output, short_answer_logits, graph_gate, [], []
+ 
+     def load_state_dict(self, state_dict, strict=True):
+         model_dict = self.state_dict()
+diff --git a/baseline_and_test_models/pipeline_model_gine.py b/baseline_and_test_models/pipeline_model_gine.py
+index 9451c61..a51dff4 100644
+--- a/baseline_and_test_models/pipeline_model_gine.py
++++ b/baseline_and_test_models/pipeline_model_gine.py
+@@ -9,9 +9,9 @@ from torch.nn import Sequential as Seq, Linear as Lin, ReLU
+ from torch_scatter import scatter_mean, scatter_add
+ import logging
+ import torch_geometric
+-from gqa_dataset_entry import GQATorchDataset
++from GraphVQA.gqa_dataset_entry import GQATorchDataset
+ 
+-from graph_utils import my_graph_layernorm
++from GraphVQA.graph_utils import my_graph_layernorm
+ 
+ 
+ import torch.nn.functional as F
+@@ -181,7 +181,7 @@ class MyConditionalGlobalAttention(torch.nn.Module):
+         gate = torch_geometric.utils.softmax(gate, batch, num_nodes=size)
+         out = scatter_add(gate * x, batch, dim=0, dim_size=size)
+ 
+-        return out
++        return (out, gate.squeeze().tolist())
+ 
+     def __repr__(self):
+         return '{}(gate_nn={}, node_nn={}, ques_nn={})'.format(self.__class__.__name__,
+@@ -556,7 +556,7 @@ class TransformerQuestionEncoder(torch.nn.Module):
+ class GroundTruth_SceneGraph_Encoder(torch.nn.Module):
+     def __init__(self):
+         super(GroundTruth_SceneGraph_Encoder, self).__init__()
+-        from gqa_dataset_entry import GQA_gt_sg_feature_lookup
++        from GraphVQA.gqa_dataset_entry import GQA_gt_sg_feature_lookup
+         sg_TEXT = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT
+         sg_vocab = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT.vocab
+ 
+@@ -864,7 +864,7 @@ class PipelineModel(torch.nn.Module):
+         # (batch_size, channels)
+         ##################################
+         global_language_feature = questions_encoded[0] # should be changed when completing NEM
+-        graph_final_feature = self.graph_global_attention_pooling(
++        graph_final_feature, graph_gate = self.graph_global_attention_pooling(
+             x = x_executed, # x=x_encoded,
+             u = global_language_feature,
+             batch = gt_scene_graphs.batch,
+@@ -885,7 +885,7 @@ class PipelineModel(torch.nn.Module):
+ 
+ 
+ 
+-        return programs_output, short_answer_logits
++        return programs_output, short_answer_logits, graph_gate, [], []
+ 
+     def load_state_dict(self, state_dict, strict=True):
+         model_dict = self.state_dict()
+diff --git a/baseline_and_test_models/pipeline_model_lcgn.py b/baseline_and_test_models/pipeline_model_lcgn.py
+index 29c8a57..1730c60 100644
+--- a/baseline_and_test_models/pipeline_model_lcgn.py
++++ b/baseline_and_test_models/pipeline_model_lcgn.py
+@@ -9,11 +9,11 @@ from torch.nn import Sequential as Seq, Linear as Lin, ReLU
+ from torch_scatter import scatter_mean, scatter_add
+ import logging
+ import torch_geometric
+-from gqa_dataset_entry import GQATorchDataset
++from GraphVQA.gqa_dataset_entry import GQATorchDataset
+ 
+-from graph_utils import my_graph_layernorm
++from GraphVQA.graph_utils import my_graph_layernorm
+ 
+-from lcgn import lcgn_seq # use second version of gat
++from GraphVQA.baseline_and_test_models.lcgn import lcgn_seq # use second version of gat
+ """
+ Graph Meta Layer, Example funciton
+ """
+@@ -178,7 +178,7 @@ class MyConditionalGlobalAttention(torch.nn.Module):
+         gate = torch_geometric.utils.softmax(gate, batch, num_nodes=size)
+         out = scatter_add(gate * x, batch, dim=0, dim_size=size)
+ 
+-        return out
++        return (out, gate.squeeze().tolist())
+ 
+     def __repr__(self):
+         return '{}(gate_nn={}, node_nn={}, ques_nn={})'.format(self.__class__.__name__,
+@@ -553,7 +553,7 @@ class TransformerQuestionEncoder(torch.nn.Module):
+ class GroundTruth_SceneGraph_Encoder(torch.nn.Module):
+     def __init__(self):
+         super(GroundTruth_SceneGraph_Encoder, self).__init__()
+-        from gqa_dataset_entry import GQA_gt_sg_feature_lookup
++        from GraphVQA.gqa_dataset_entry import GQA_gt_sg_feature_lookup
+         sg_TEXT = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT
+         sg_vocab = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT.vocab
+ 
+@@ -797,7 +797,7 @@ class PipelineModel(torch.nn.Module):
+         # (batch_size, channels)
+         ##################################
+         global_language_feature = questions_encoded[0] # should be changed when completing NEM
+-        graph_final_feature = self.graph_global_attention_pooling(
++        graph_final_feature, graph_gate = self.graph_global_attention_pooling(
+             x = x_executed, # x=x_encoded,
+             u = global_language_feature,
+             batch = gt_scene_graphs.batch,
+@@ -818,7 +818,7 @@ class PipelineModel(torch.nn.Module):
+ 
+ 
+ 
+-        return programs_output, short_answer_logits
++        return programs_output, short_answer_logits, graph_gate, [], []
+ 
+     def load_state_dict(self, state_dict, strict=True):
+         model_dict = self.state_dict()
+diff --git a/gat_skip.py b/gat_skip.py
+index 4c20e3f..8ec44f9 100644
+--- a/gat_skip.py
++++ b/gat_skip.py
+@@ -249,6 +249,7 @@ class gat_seq(torch.nn.Module):
+     def forward(self, x, edge_index, edge_attr, instr_vectors, batch):
+ 
+         num_conv_layers = len(self.convs)
++        attention_weights_list = []
+ 
+         h = x
+         for i in range(num_conv_layers):
+@@ -266,9 +267,12 @@ class gat_seq(torch.nn.Module):
+ 
+ 
+             # feed into the GAT:
+-            conv_res = self.convs[i](x=x_cat, edge_index=edge_index, edge_attr=edge_cat)
++            conv_res, attention_weights = self.convs[i](x=x_cat, edge_index=edge_index, edge_attr=edge_cat, return_attention_weights=True)
+             h = conv_res + h # skip connection
+ 
++            edge_idx, attention_values = attention_weights
++            attention_weights_list.append(attention_values)
++
+             # do BN, ReLU, Droupout in-between all conv layers
+             if i != num_conv_layers-1:
+                 h = self.bns[i](h)
+@@ -276,5 +280,5 @@ class gat_seq(torch.nn.Module):
+                 h = F.dropout(h, p=self.dropout, training=self.training)
+ 
+ 
+-        return h # return the last layer's hidden rep.
++        return (h, (edge_idx, attention_weights_list)) # return the last layer's hidden rep.
+ 
+diff --git a/gqa_dataset_entry.py b/gqa_dataset_entry.py
+index d1949af..8fa7115 100644
+--- a/gqa_dataset_entry.py
++++ b/gqa_dataset_entry.py
+@@ -10,7 +10,7 @@ import pickle
+ import pathlib
+ import json
+ import torch
+-import Constants
++import GraphVQA.Constants as Constants
+ import numpy as np
+ import torch_geometric
+ import torchtext
+@@ -27,7 +27,7 @@ import torchtext
+ 
+ 
+ ROOT_DIR = Constants.ROOT_DIR
+-SCENEGRAPHS = ROOT_DIR.joinpath('GraphVQA', 'sceneGraphs')  # SCENEGRAPHS = ROOT_DIR / 'Downloads' / 'sceneGraphs'
++SCENEGRAPHS = ROOT_DIR.joinpath('dataset', 'scenegraphs')  # SCENEGRAPHS = ROOT_DIR / 'Downloads' / 'sceneGraphs'
+ EXPLAINABLE_GQA_DIR = ROOT_DIR.joinpath('GraphVQA')
+ 
+ SPLIT_TO_H5_PATH_TABLE = {
+@@ -154,7 +154,7 @@ class GQA_gt_sg_feature_lookup:
+         tmp_text_list += load_str_list(ROOT_DIR / 'GraphVQA/meta_info/attr_gqa.txt')
+         tmp_text_list += load_str_list(ROOT_DIR / 'GraphVQA/meta_info/rel_gqa.txt')
+ 
+-        import Constants
++        import GraphVQA.Constants
+         tmp_text_list += Constants.OBJECTS_INV + Constants.RELATIONS_INV + Constants.ATTRIBUTES_INV
+         tmp_text_list.append("<self>") # add special token for self-connection
+         tmp_text_list = [ tmp_text_list ]
+diff --git a/pipeline_model_gat.py b/pipeline_model_gat.py
+index aa431f2..e2cf13a 100644
+--- a/pipeline_model_gat.py
++++ b/pipeline_model_gat.py
+@@ -9,11 +9,11 @@ from torch.nn import Sequential as Seq, Linear as Lin, ReLU
+ from torch_scatter import scatter_mean, scatter_add
+ import logging
+ import torch_geometric
+-from gqa_dataset_entry import GQATorchDataset
++from GraphVQA.gqa_dataset_entry import GQATorchDataset
+ 
+-from graph_utils import my_graph_layernorm
++from GraphVQA.graph_utils import my_graph_layernorm
+ 
+-from gat_skip import gat_seq # use second version of gat
++from GraphVQA.gat_skip import gat_seq # use second version of gat
+ """
+ Graph Meta Layer, Example funciton
+ """
+@@ -178,7 +178,7 @@ class MyConditionalGlobalAttention(torch.nn.Module):
+         gate = torch_geometric.utils.softmax(gate, batch, num_nodes=size)
+         out = scatter_add(gate * x, batch, dim=0, dim_size=size)
+ 
+-        return out
++        return (out, gate.squeeze().tolist())
+ 
+     def __repr__(self):
+         return '{}(gate_nn={}, node_nn={}, ques_nn={})'.format(self.__class__.__name__,
+@@ -553,7 +553,7 @@ class TransformerQuestionEncoder(torch.nn.Module):
+ class GroundTruth_SceneGraph_Encoder(torch.nn.Module):
+     def __init__(self):
+         super(GroundTruth_SceneGraph_Encoder, self).__init__()
+-        from gqa_dataset_entry import GQA_gt_sg_feature_lookup
++        from GraphVQA.gqa_dataset_entry import GQA_gt_sg_feature_lookup
+         sg_TEXT = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT
+         sg_vocab = GQA_gt_sg_feature_lookup.SG_ENCODING_TEXT.vocab
+ 
+@@ -788,8 +788,8 @@ class PipelineModel(torch.nn.Module):
+ 
+         # x_executed = self.gat_seq(x=x_cat, edge_index=gt_scene_graphs.edge_index, edge_attr=edge_cat)
+ 
+-        x_executed = self.gat_seq(x=x_encoded, edge_index=gt_scene_graphs.edge_index, edge_attr=edge_attr_encoded, instr_vectors=instr_vectors, batch=gt_scene_graphs.batch)
+-        
++        x_executed, edge_info_packed = self.gat_seq(x=x_encoded, edge_index=gt_scene_graphs.edge_index, edge_attr=edge_attr_encoded, instr_vectors=instr_vectors, batch=gt_scene_graphs.batch)
++        edge_index, attention_weights_list = edge_info_packed
+ 
+ 
+         ##################################
+@@ -797,7 +797,7 @@ class PipelineModel(torch.nn.Module):
+         # (batch_size, channels)
+         ##################################
+         global_language_feature = questions_encoded[0] # should be changed when completing NEM
+-        graph_final_feature = self.graph_global_attention_pooling(
++        graph_final_feature, graph_gate = self.graph_global_attention_pooling(
+             x = x_executed, # x=x_encoded,
+             u = global_language_feature,
+             batch = gt_scene_graphs.batch,
+@@ -818,7 +818,7 @@ class PipelineModel(torch.nn.Module):
+ 
+ 
+ 
+-        return programs_output, short_answer_logits
++        return programs_output, short_answer_logits, graph_gate, edge_index, attention_weights_list
+ 
+     def load_state_dict(self, state_dict, strict=True):
+         model_dict = self.state_dict()
+diff --git a/questions/testdev_balanced_programs.json b/questions/testdev_balanced_programs.json
+new file mode 100644
+index 0000000..fe51488
+--- /dev/null
++++ b/questions/testdev_balanced_programs.json
+@@ -0,0 +1 @@
++[]
+diff --git a/questions/train_balanced_programs.json b/questions/train_balanced_programs.json
+new file mode 100644
+index 0000000..fe51488
+--- /dev/null
++++ b/questions/train_balanced_programs.json
+@@ -0,0 +1 @@
++[]
+diff --git a/questions/val_balanced_programs.json b/questions/val_balanced_programs.json
+new file mode 100644
+index 0000000..fe51488
+--- /dev/null
++++ b/questions/val_balanced_programs.json
+@@ -0,0 +1 @@
++[]

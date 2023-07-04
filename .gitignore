@@ -1,0 +1,58 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/client/dist
+/client/tmp
+/client/out-tsc
+/client/bazel-out
+
+# Node
+/client/node_modules
+/client/npm-debug.log
+/client/yarn-error.log
+
+# IDEs and editors
+/client/.idea/
+/client/.project
+/client/.classpath
+/client/.c9/
+/client/*.launch
+/client/.settings/
+/client/*.sublime-workspace
+
+# Visual Studio Code
+/client/.vscode/*
+!/client/.vscode/settings.json
+!/client/.vscode/tasks.json
+!/client/.vscode/launch.json
+!/client/.vscode/extensions.json
+/client/.history/*
+
+# Miscellaneous
+/client/.angular/cache
+/client/.sass-cache/
+/client/connect.lock
+/client//coverage
+/client/libpeerconnection.log
+/client/testem.log
+/client/typings
+
+# Rust
+/client/src/app/services/wasm/module/pkg
+/client/src/app/services/wasm/module/target
+
+# Server Files
+__pycache__
+.vector_cache
+/server/dataset/evaluation
+/server/dataset/images
+/server/dataset/parameters
+/server/dataset/scenegraphs
+/server/dataset/thumbnails
+/server/dataset/images_custom
+/server/dataset/thumbnails_custom
+/server/dataset/tmp
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,56 @@
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.mat-list-base {
+    padding-top: 0;
+}
+
+.mat-list-base[dense] {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.list-object-grid-container {
+    display: grid;
+    grid-template-areas: "info edit";
+    gap: 0;
+    justify-items: start;
+}
+
+.info-object-list-element {
+    grid-area: info;
+    justify-self: stretch;
+}
+
+.edit-object-list-element {
+    grid-area: edit;
+    justify-self: end;
+    visibility: hidden;
+}
+
+.object-list-element:hover .edit-object-list-element {
+    visibility: visible;
+}
+
+.list-relation-grid-container {
+    display: grid;
+    grid-template-areas: "info edit";
+    gap: 0;
+    justify-items: start;
+}
+
+.info-relation-list-element {
+    grid-area: info;
+    justify-self: stretch;
+}
+
+.edit-relation-list-element {
+    grid-area: edit;
+    justify-self: end;
+    visibility: hidden;
+}
+
+.relation-list-element:hover .edit-relation-list-element {
+    visibility: visible;
+}

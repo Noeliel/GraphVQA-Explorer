@@ -1,0 +1,21 @@
+export const environment = {
+    production: true,
+    server_protocol: 'http',
+    server_host: 'localhost',
+    server_port: '5000',
+    colors: {
+        graph_node_bounding_box: 'lime',
+        graph_node_stroke: 'fuchsia',
+        graph_node_stroke_popout: 'blue',
+        graph_node_stroke_selection_preview: 'blue',
+        graph_node_stroke_selected: 'lime',
+        graph_node_fill_primary: 'lime',
+        graph_node_fill_secondary: 'fuchsia',
+        graph_edge_stroke: 'fuchsia',
+        graph_edge_stroke_popout: 'blue',
+        graph_edge_fill: 'pink',
+        graph_edge_stroke_alt: 'green',
+        graph_edge_stroke_popout_alt: 'orange',
+        graph_edge_fill_alt: 'lime',
+    },
+};

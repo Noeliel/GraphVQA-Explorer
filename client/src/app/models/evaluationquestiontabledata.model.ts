@@ -1,0 +1,32 @@
+export interface EvaluationQuestionTableData {
+    question_id: string;
+    scene_id: string;
+    question: string;
+    ambiguity: number;
+    ground_truth: string;
+    prediction_1: string;
+    confidence_1: number;
+    correct_1: string;
+    prediction_2: string;
+    confidence_2: number;
+    correct_2: string;
+    prediction_3: string;
+    confidence_3: number;
+    correct_3: string;
+    prediction_4: string;
+    confidence_4: number;
+    correct_4: string;
+    prediction_5: string;
+    confidence_5: number;
+    correct_5: string;
+    focus_1: string;
+    weight_1: number;
+    focus_2: string;
+    weight_2: number;
+    focus_3: string;
+    weight_3: number;
+    focus_4: string;
+    weight_4: number;
+    focus_5: string;
+    weight_5: number;
+}

@@ -1,0 +1,2573 @@
+id,text
+0,<unk>
+1,baker
+2,cluttered
+3,mature
+4,owl
+5,chained to
+6,fire trucks
+7,wardrobe
+8,thin
+9,deep
+10,oatmeal
+11,serving
+12,short sleeved
+13,cooking
+14,weapon
+15,sticks
+16,staring
+17,plain
+18,sink
+19,pizza pan
+20,window frame
+21,pillows
+22,peanuts
+23,lime
+24,tilted
+25,heater
+26,bike
+27,cows
+28,lipstick
+29,potato
+30,sign post
+31,mother
+32,smoke
+33,ice cube
+34,dark blue
+35,taxis
+36,kitten
+37,robot
+38,sewn on
+39,chocolate
+40,coarse
+41,carpet
+42,tattoos
+43,belt
+44,sweet potatoes
+45,butter knife
+46,toddler
+47,slicing
+48,fluffy
+49,granite
+50,air
+51,parked in front of
+52,folding chair
+53,pomegranate
+54,bare
+55,lighthouse
+56,drum
+57,toilet tank
+58,cloud
+59,leg
+60,kiosk
+61,jewelry
+62,battery
+63,happy
+64,vacuum
+65,headboard
+66,sign
+67,earrings
+68,pasta salad
+69,cracked
+70,license
+71,seafood
+72,arched
+73,pilot
+74,walnut
+75,passengers
+76,long sleeved
+77,unoccupied
+78,eye glasses
+79,locomotive
+80,guacamole
+81,watching
+82,game controller
+83,blankets
+84,cactus
+85,fruits
+86,toaster oven
+87,squirrel
+88,blond
+89,televisions
+90,cords
+91,sandwich
+92,cereal
+93,meadow
+94,swinging
+95,irregular
+96,costume
+97,obstacle
+98,air conditioner
+99,ginger
+100,elongated
+101,dock
+102,coffee maker
+103,tofu
+104,nike
+105,chopstick
+106,flip flops
+107,pie
+108,ornamental
+109,traveling down
+110,stop sign
+111,urinal
+112,van
+113,looking up
+114,rose
+115,cross
+116,bricks
+117,stars
+118,orchids
+119,donkeys
+120,parked behind
+121,reflecting in
+122,pistachio
+123,dragging
+124,power lines
+125,scattered
+126,silverware
+127,watermelon
+128,parachute
+129,pine
+130,coconut
+131,kitchen towel
+132,vest
+133,biting
+134,abandoned
+135,fat
+136,turbines
+137,parachutes
+138,teal
+139,leafless
+140,cockpit
+141,sheet
+142,pizza cutter
+143,peanut butter
+144,street lights
+145,sad
+146,recessed
+147,macaroni
+148,bug
+149,holding onto
+150,fruit
+151,blackberries
+152,cotton dessert
+153,sealed
+154,posing with
+155,blanket
+156,oriental
+157,eggplant
+158,melons
+159,elbow pad
+160,hotel room
+161,pizza slices
+162,life preserver
+163,misty
+164,cabinet
+165,leaving
+166,frisbee
+167,building
+168,tree branch
+169,garnish
+170,washing machine
+171,hedges
+172,child
+173,school
+174,low
+175,wildflower
+176,plugged into
+177,plants
+178,wok
+179,shaded
+180,printers
+181,ham
+182,chalkboard
+183,heart
+184,gentleman
+185,mattresses
+186,on
+187,luggage
+188,waiter
+189,cooker
+190,on the edge of
+191,lit
+192,jars
+193,styrofoam
+194,sloped
+195,pepper shaker
+196,planter
+197,dinner
+198,towel
+199,pancakes
+200,guiding
+201,castles
+202,fishing pole
+203,strawberry
+204,sunflower
+205,cigarettes
+206,pants
+207,flatbread
+208,street light
+209,students
+210,penguins
+211,mirror
+212,cabin
+213,house
+214,touchpad
+215,tuna
+216,connected to
+217,avocado
+218,spider
+219,reflected on
+220,elephants
+221,produce
+222,hibiscus
+223,standing behind
+224,apple
+225,bison
+226,pushed by
+227,sleepy
+228,stew
+229,crossed
+230,shoe lace
+231,octopus
+232,rippled
+233,tunnel
+234,gloved
+235,yellow
+236,still
+237,unlit
+238,mirrors
+239,parked on
+240,ovens
+241,horse hoof
+242,looking in
+243,cheese
+244,medicine cabinet
+245,burrito
+246,dresser
+247,wii game
+248,higher than
+249,oreo
+250,platform
+251,robe
+252,closed
+253,connected
+254,waiting
+255,lamp
+256,wool
+257,up
+258,tied around
+259,outstretched
+260,gate
+261,alert
+262,cats
+263,towing
+264,made
+265,glaze
+266,doorway
+267,decorative
+268,pan
+269,working in
+270,student
+271,syrup
+272,powdered
+273,speakers
+274,black
+275,soap dish
+276,round
+277,paper dispenser
+278,walking on
+279,lawn
+280,pillow
+281,cables
+282,spectators
+283,cat food
+284,mustard bottle
+285,onion ring
+286,scarce
+287,theater
+288,barrier
+289,in between
+290,ice cubes
+291,island
+292,garland
+293,opaque
+294,browned
+295,pastries
+296,decorations
+297,soccer
+298,pajamas
+299,bronze
+300,stuck on
+301,standing at
+302,tree trunk
+303,appliance
+304,pump
+305,cherries
+306,garbage
+307,snow
+308,town
+309,cooking oil
+310,yogurt
+311,playing at
+312,snack
+313,immature
+314,painted
+315,hearts
+316,professional
+317,in
+318,ketchup
+319,talking to
+320,ravioli
+321,decorated
+322,cheeseburger
+323,amusement park
+324,plastic
+325,shirt
+326,sailboat
+327,vests
+328,parent
+329,skis
+330,cars
+331,small
+332,deck
+333,donuts
+334,seaweed
+335,dishwasher
+336,salt shaker
+337,mushroom
+338,rusty
+339,pot
+340,melted
+341,classroom
+342,mixed with
+343,bath towel
+344,tiled
+345,desktop computer
+346,cotton candy
+347,train
+348,sweatshirt
+349,sack
+350,cathedral
+351,log
+352,skinny
+353,dark
+354,ski lift
+355,cereal box
+356,edged
+357,jumping on
+358,pikachu
+359,beverage
+360,pretty
+361,bottle
+362,fruit stand
+363,parked beside
+364,pear
+365,shorter than
+366,roof
+367,swimming pool
+368,skating on
+369,wavy
+370,leaning on
+371,minute hand
+372,sitting inside
+373,potted
+374,on the back of
+375,star
+376,chair
+377,performer
+378,waist
+379,thick
+380,piled on
+381,jar
+382,toys
+383,hook
+384,food container
+385,dogs
+386,looking through
+387,safety
+388,lush
+389,nutella
+390,coat
+391,drape
+392,surfer
+393,garage door
+394,saucer
+395,rainy
+396,glowing
+397,coffee beans
+398,rubber duck
+399,price tag
+400,driving
+401,sticker
+402,lying inside
+403,broom
+404,woven
+405,onion
+406,athlete
+407,skiing down
+408,frosting
+409,bone
+410,toothbrush
+411,bottles
+412,artificial
+413,beneath
+414,chopped
+415,tortilla
+416,floor lamp
+417,wrinkled
+418,bracelets
+419,knee pad
+420,mixer
+421,step
+422,menus
+423,knee pads
+424,pickles
+425,rectangular
+426,stump
+427,biscuits
+428,clear
+429,cheesecake
+430,books
+431,outlet
+432,fries
+433,calm
+434,sliced
+435,monkeys
+436,onion rings
+437,walnuts
+438,waving
+439,suv
+440,peas
+441,wine glasses
+442,fire hydrant
+443,reaching for
+444,face
+445,map
+446,bookshelves
+447,pastel
+448,groceries
+449,crate
+450,leaf
+451,umbrella
+452,sitting on top of
+453,doors
+454,tied to
+455,breaking
+456,piercing
+457,comb
+458,knife
+459,basil
+460,jersey
+461,drawers
+462,light bulbs
+463,unhealthy
+464,tags
+465,worn on
+466,smiling
+467,huge
+468,above
+469,elephant
+470,drain
+471,rooftop
+472,eating from
+473,standing around
+474,display
+475,rough
+476,door
+477,purple
+478,public
+479,ugly
+480,translucent
+481,facing
+482,parked in
+483,soda can
+484,sand
+485,soda bottle
+486,touching
+487,playing on
+488,carriage
+489,busy
+490,roast beef
+491,parking sign
+492,pink
+493,cake
+494,knotted
+495,curtain
+496,shingled
+497,stone
+498,orchard
+499,toppings
+500,vinegar
+501,antelope
+502,hidden by
+503,iron
+504,talking
+505,squash
+506,banana peel
+507,sweet potato
+508,docked
+509,rock
+510,rhinos
+511,wolf
+512,ruffled
+513,cotton
+514,glossy
+515,tv stand
+516,straw
+517,padded
+518,lying on
+519,hanging in
+520,sea foam
+521,cell phone
+522,potato salad
+523,necklaces
+524,walking across
+525,hazy
+526,light blue
+527,buoys
+528,patio
+529,kittens
+530,copper
+531,growing behind
+532,urban
+533,triangular
+534,hand dryer
+535,juice
+536,sock
+537,barefoot
+538,lavender
+539,train car
+540,ribs
+541,used
+542,goats
+543,picnic
+544,tasty
+545,ipod
+546,brick
+547,steak
+548,chickens
+549,containers
+550,controllers
+551,trunk
+552,snowboards
+553,wine glass
+554,tomato
+555,tea
+556,cupboards
+557,pepper
+558,following
+559,ceiling light
+560,corded
+561,dream catcher
+562,forest
+563,cooking utensils
+564,cones
+565,piano
+566,peppers
+567,mushrooms
+568,dish drainer
+569,boxes
+570,french
+571,shoe
+572,necklace
+573,sweater
+574,cupcake
+575,perched on
+576,wooded
+577,field
+578,hummus
+579,surrounding
+580,tablecloth
+581,charger
+582,walking
+583,rifle
+584,ripe
+585,spray bottle
+586,brownies
+587,popcorn
+588,deciduous
+589,watermelons
+590,dvd player
+591,standing under
+592,whipped cream
+593,phones
+594,dish
+595,cream colored
+596,tree branches
+597,wii controller
+598,tea pot
+599,floating on
+600,light brown
+601,lamb
+602,bamboo
+603,protective
+604,stairs
+605,hay
+606,wines
+607,clumped
+608,spice
+609,rotten
+610,zucchini
+611,olives
+612,sunflowers
+613,scissors
+614,stuffed bear
+615,garage
+616,folding
+617,dugout
+618,helmet
+619,vibrant
+620,male
+621,visitors
+622,dome
+623,stores
+624,cowboy hat
+625,bright
+626,honey
+627,adjusting
+628,dumplings
+629,toilet lid
+630,illuminated
+631,mozzarella
+632,vegetable
+633,plate
+634,telephone pole
+635,christmas light
+636,buying
+637,resting
+638,rustic
+639,looking into
+640,swimmer
+641,stuffed bears
+642,wrapped
+643,white
+644,ketchup bottle
+645,ducks
+646,crouched
+647,pizza shop
+648,ring
+649,goat
+650,shoe laces
+651,beet
+652,blueberry
+653,legs
+654,truck
+655,pears
+656,computer desk
+657,video games
+658,portable
+659,using
+660,cabinets
+661,disposable
+662,snakes
+663,sour cream
+664,lion
+665,characters
+666,turkey
+667,character
+668,packaged
+669,pudding
+670,bear
+671,auditorium
+672,staring at
+673,dragonfly
+674,gloves
+675,mountain
+676,hot dogs
+677,cabinet door
+678,harbor
+679,toothpaste
+680,lamps
+681,discolored
+682,damaged
+683,vacant
+684,boat
+685,grated
+686,oven
+687,spray can
+688,office supplies
+689,trumpet
+690,pita
+691,mayonnaise
+692,filled
+693,newspaper
+694,calico
+695,wallpaper
+696,cookbook
+697,traffic
+698,fudge
+699,comfortable
+700,chef
+701,soccer player
+702,bags
+703,foamy
+704,heels
+705,tall
+706,folded
+707,polo
+708,modern
+709,polo shirt
+710,owls
+711,hose
+712,on the front of
+713,ridged
+714,frosted
+715,twisted
+716,laptop
+717,pancake
+718,candle
+719,cemetery
+720,roadside
+721,pulled back
+722,magnet
+723,bracelet
+724,food
+725,sausages
+726,heavy
+727,heel
+728,chains
+729,faucet
+730,straight
+731,rimmed
+732,stickers
+733,book
+734,luggage cart
+735,sculpted
+736,snow boots
+737,squatting
+738,carts
+739,pencils
+740,grazing in
+741,windshield
+742,cucumbers
+743,marker
+744,uneven
+745,dry-erase board
+746,cap
+747,fingers
+748,crowded
+749,lemonade
+750,pale
+751,pots
+752,sharp
+753,adult
+754,wispy
+755,cappuccino
+756,baseball mitt
+757,chipped
+758,concrete
+759,panda
+760,playing in
+761,laptops
+762,toast
+763,crouching
+764,plaid
+765,rugged
+766,toilet paper
+767,berry
+768,chicken
+769,platter
+770,box
+771,close to
+772,outlets
+773,running on
+774,chandelier
+775,parmesan cheese
+776,attached to
+777,fish
+778,cabinet doors
+779,paper towels
+780,shark
+781,little
+782,pea
+783,lace
+784,road
+785,jockey
+786,buildings
+787,kept in
+788,cherry
+789,smaller than
+790,wristwatch
+791,men
+792,safety jacket
+793,on top of
+794,herbs
+795,overhead
+796,electric toothbrush
+797,surfboards
+798,wearing
+799,outfits
+800,lobby
+801,food truck
+802,buses
+803,printed
+804,snowboard
+805,sofa
+806,taxi
+807,parked near
+808,electric
+809,bleachers
+810,cash register
+811,grape
+812,fireplace
+813,trains
+814,foil
+815,satellite dish
+816,tying
+817,street
+818,hot dog
+819,walking by
+820,tissue box
+821,chicken breast
+822,end table
+823,decorated by
+824,goose
+825,pans
+826,soccer ball
+827,dolphins
+828,biker
+829,player
+830,hitting
+831,hanging over
+832,fire
+833,peach
+834,patched
+835,spoon
+836,skyscrapers
+837,walking toward
+838,antenna
+839,halved
+840,shop
+841,suitcases
+842,picture
+843,military
+844,soap bottle
+845,double decker
+846,coats
+847,grapes
+848,pantry
+849,napkin
+850,employee
+851,paint
+852,pointy
+853,having meeting
+854,farm
+855,beard
+856,water glass
+857,coconuts
+858,wolves
+859,vines
+860,curtains
+861,flat
+862,drawings
+863,hammer
+864,raincoat
+865,closet
+866,comforter
+867,lying in
+868,muddy
+869,coming out of
+870,swimming in
+871,power line
+872,angry
+873,blurry
+874,breakfast
+875,smiling at
+876,bandana
+877,creamy
+878,monitor
+879,cafeteria
+880,cyclist
+881,scarf
+882,strawberries
+883,blood
+884,goggles
+885,knife block
+886,canopy
+887,pointing
+888,growing next to
+889,bread box
+890,surrounded by
+891,meal
+892,soap dispenser
+893,sugar packets
+894,christmas
+895,coffee mug
+896,sugar packet
+897,walking along
+898,pencil
+899,groomed
+900,animals
+901,written
+902,ground
+903,napkins
+904,seasoned
+905,croissants
+906,walking towards
+907,briefcase
+908,assorted
+909,tourist
+910,juicy
+911,growing by
+912,router
+913,marshmallow
+914,fresh
+915,cable
+916,rolling pin
+917,sandal
+918,dotted
+919,undershirt
+920,vendors
+921,train station
+922,dull
+923,toiletries
+924,pipes
+925,lounge
+926,down
+927,sheets
+928,tangled
+929,gravel
+930,handbag
+931,license plate
+932,moon
+933,homes
+934,sitting in front of
+935,growing on
+936,covering
+937,reflective
+938,oak tree
+939,textured
+940,merchandise
+941,chubby
+942,tire
+943,catcher
+944,windows
+945,towels
+946,brass
+947,young
+948,printed on
+949,ladder
+950,horns
+951,houses
+952,sharks
+953,metal
+954,fence
+955,basket
+956,looking down
+957,helping
+958,vending machine
+959,jumping over
+960,mound
+961,father
+962,minivan
+963,draped over
+964,beer mug
+965,traffic sign
+966,utensil
+967,wine bottles
+968,monster
+969,eating in
+970,computer monitor
+971,tangerine
+972,standing on top of
+973,sail
+974,rocks
+975,tape
+976,covered in
+977,fluorescent
+978,blender
+979,microphone
+980,pasta
+981,lemons
+982,courtyard
+983,frog
+984,magnets
+985,crashing
+986,teddy bears
+987,cooking utensil
+988,couch
+989,followed by
+990,wired
+991,sprinkled on
+992,worker
+993,smoothie
+994,salmon
+995,skater
+996,gift
+997,towel dispenser
+998,church
+999,paws
+1000,soccer balls
+1001,artichoke
+1002,shut
+1003,market
+1004,ornament
+1005,kitchen
+1006,mug
+1007,bacon
+1008,pizza oven
+1009,walking down
+1010,displayed on
+1011,lock
+1012,skate park
+1013,device
+1014,cylindrical
+1015,burner
+1016,jumpsuit
+1017,panda bear
+1018,transparent
+1019,walking near
+1020,anchovies
+1021,sandals
+1022,counter
+1023,cards
+1024,skiing in
+1025,armor
+1026,pizza tray
+1027,chalk
+1028,growing along
+1029,mannequins
+1030,gray
+1031,narrow
+1032,cut
+1033,healthy
+1034,baked good
+1035,shiny
+1036,forested
+1037,crystal
+1038,light
+1039,sunlit
+1040,hedge
+1041,vases
+1042,giant
+1043,players
+1044,around
+1045,wrapped in
+1046,walkway
+1047,cell phones
+1048,toilet bowl
+1049,vanilla
+1050,tea kettle
+1051,dried
+1052,painting
+1053,pole
+1054,boarding
+1055,blazer
+1056,graffiti
+1057,accessory
+1058,lined
+1059,apartment
+1060,riding on
+1061,school bus
+1062,loaf
+1063,mannequin
+1064,banana
+1065,rolled
+1066,furry
+1067,dryer
+1068,decorating
+1069,stir fry
+1070,spear
+1071,hallway
+1072,bull
+1073,team
+1074,foreign
+1075,half full
+1076,pandas
+1077,socks
+1078,throwing
+1079,bus driver
+1080,birds
+1081,horses
+1082,parrots
+1083,industrial
+1084,giraffe
+1085,vendor
+1086,canisters
+1087,fenced
+1088,banana bunches
+1089,milk
+1090,selling
+1091,typical
+1092,pouch
+1093,logo
+1094,railroad
+1095,zebras
+1096,wetsuit
+1097,television
+1098,flip flop
+1099,cream
+1100,burger
+1101,wide
+1102,mustard
+1103,room
+1104,laughing
+1105,mexican food
+1106,upholstered
+1107,fake
+1108,jeans
+1109,potato chips
+1110,stuffed animal
+1111,snow shoe
+1112,kangaroo
+1113,spiky
+1114,crab
+1115,crusty
+1116,lighted
+1117,incomplete
+1118,tan
+1119,outdoors
+1120,muffin
+1121,gourd
+1122,warm
+1123,contain
+1124,scattered on
+1125,wicker
+1126,coffee bean
+1127,cooked in
+1128,son
+1129,clock
+1130,spots
+1131,shower curtain
+1132,eating
+1133,stained
+1134,antennas
+1135,underneath
+1136,motorcycle
+1137,going through
+1138,marina
+1139,hairy
+1140,directional
+1141,engineer
+1142,standing by
+1143,shirts
+1144,scooters
+1145,artichokes
+1146,package
+1147,sandy
+1148,beige
+1149,countertop
+1150,vintage
+1151,miniature
+1152,real
+1153,swans
+1154,tabby
+1155,drawer
+1156,airplanes
+1157,spatula
+1158,fuzzy
+1159,curved
+1160,label
+1161,bun
+1162,packages
+1163,kicking
+1164,pesto
+1165,oversized
+1166,brownie
+1167,letter
+1168,uncooked
+1169,pigs
+1170,shaved
+1171,longer than
+1172,soap
+1173,bag
+1174,hairbrush
+1175,collared
+1176,palm trees
+1177,person
+1178,horse
+1179,juice box
+1180,cage
+1181,toilet seat
+1182,jet
+1183,trucks
+1184,hospital
+1185,wedding
+1186,parsley
+1187,gadget
+1188,bubbles
+1189,drinking
+1190,blowing out
+1191,omelette
+1192,shining
+1193,skier
+1194,displayed
+1195,helicopter
+1196,ski
+1197,aluminum
+1198,pipe
+1199,chinese food
+1200,pitcher
+1201,office chair
+1202,hard
+1203,dinosaur
+1204,exterior
+1205,chopsticks
+1206,bee
+1207,sliding
+1208,camel
+1209,short
+1210,finger
+1211,tiger
+1212,maroon
+1213,falling off
+1214,tools
+1215,seagulls
+1216,tongs
+1217,life jackets
+1218,hang from
+1219,cake pan
+1220,mugs
+1221,buffet
+1222,drawn
+1223,wine bottle
+1224,spices
+1225,full
+1226,sidewalk
+1227,bird cage
+1228,ingredient
+1229,pizza pie
+1230,sleeping on
+1231,walking past
+1232,behind
+1233,watch
+1234,scaffolding
+1235,mounted on
+1236,apartment building
+1237,lunch
+1238,beetle
+1239,chef hat
+1240,citrus
+1241,donkey
+1242,grilled
+1243,oil
+1244,formal
+1245,knives
+1246,mountains
+1247,projector
+1248,salad dressing
+1249,asphalt
+1250,burnt
+1251,headband
+1252,rackets
+1253,snowboarder
+1254,weeds
+1255,propeller
+1256,ball
+1257,ivory
+1258,tires
+1259,shaggy
+1260,standing next to
+1261,mouth
+1262,cookie
+1263,shore
+1264,menu
+1265,bagel
+1266,pizzas
+1267,lizard
+1268,of
+1269,receipt
+1270,skateboarding
+1271,restaurant
+1272,roll
+1273,eaten
+1274,cds
+1275,chess piece
+1276,grazing
+1277,roses
+1278,cushioned
+1279,lego
+1280,dip
+1281,snail
+1282,gloomy
+1283,polar bear
+1284,can
+1285,office
+1286,bunched
+1287,snowy
+1288,coral
+1289,curly
+1290,fallen
+1291,skin
+1292,shampoo
+1293,eating at
+1294,broken
+1295,pretzel
+1296,murky
+1297,thermometer
+1298,floating
+1299,fork
+1300,dining room
+1301,melting
+1302,can opener
+1303,surfing
+1304,twigs
+1305,woman
+1306,living room
+1307,overgrown
+1308,suit
+1309,tiles
+1310,swimming
+1311,bouquet
+1312,birthday
+1313,glazed
+1314,brown
+1315,bell
+1316,ottoman
+1317,bunny
+1318,ladles
+1319,grabbing
+1320,pizza box
+1321,trees
+1322,resting on
+1323,ostriches
+1324,liquid
+1325,hair clip
+1326,tinted
+1327,ear buds
+1328,walking in
+1329,flying over
+1330,shops
+1331,kissing
+1332,alien
+1333,seen through
+1334,drawing
+1335,beer bottle
+1336,handmade
+1337,steep
+1338,tractor
+1339,steamed
+1340,high
+1341,candy
+1342,boot
+1343,food trucks
+1344,garden
+1345,calculator
+1346,shrimp
+1347,toasted
+1348,mixed
+1349,palm
+1350,drawn on
+1351,smoking
+1352,hand
+1353,walking up
+1354,playing with
+1355,shoes
+1356,square
+1357,balls
+1358,scrub brush
+1359,palace
+1360,unripe
+1361,workers
+1362,farmers
+1363,figure
+1364,chimney
+1365,baked goods
+1366,shaped
+1367,stacked on
+1368,flower pot
+1369,wrapped around
+1370,grill
+1371,walking into
+1372,hanging above
+1373,cucumber
+1374,dessert
+1375,below
+1376,petting
+1377,catching
+1378,homemade
+1379,foot
+1380,paddle
+1381,pizza boxes
+1382,flags
+1383,slanted
+1384,snowsuit
+1385,with
+1386,baseball players
+1387,cooking pot
+1388,octagonal
+1389,under
+1390,shelves
+1391,loose
+1392,rocky
+1393,phone
+1394,alcohol
+1395,looking over
+1396,dirt
+1397,oblong
+1398,upper
+1399,pillowcase
+1400,traffic light
+1401,steel
+1402,wagon
+1403,tail
+1404,utensil holder
+1405,mesh
+1406,telephone
+1407,flying
+1408,wrist
+1409,strong
+1410,ocean
+1411,grapefruit
+1412,vast
+1413,nuts
+1414,skateboard
+1415,pineapple
+1416,walking next to
+1417,beer cans
+1418,displayed in
+1419,soda
+1420,celery
+1421,waffle
+1422,moss
+1423,covered by
+1424,donut
+1425,paper towel
+1426,teeth
+1427,fans
+1428,sitting behind
+1429,desk
+1430,umpire
+1431,smooth
+1432,green
+1433,running through
+1434,tin
+1435,mountain side
+1436,branches
+1437,pushing
+1438,picking up
+1439,patchy
+1440,standing
+1441,cigar
+1442,card
+1443,tie
+1444,large
+1445,tank top
+1446,attic
+1447,dragons
+1448,beautiful
+1449,couple
+1450,stainless steel
+1451,liquor
+1452,mounted
+1453,soup
+1454,getting on
+1455,arrow
+1456,shallow
+1457,asian
+1458,lobster
+1459,table
+1460,toy car
+1461,roman
+1462,marble
+1463,decorated with
+1464,magazine
+1465,stroller
+1466,pizza crust
+1467,pecan
+1468,floral
+1469,opening
+1470,crumpled
+1471,adidas
+1472,filled with
+1473,clocks
+1474,shuttle
+1475,pliers
+1476,paneled
+1477,milk carton
+1478,feet
+1479,berries
+1480,standing against
+1481,wheelchair
+1482,hamburger
+1483,bed
+1484,bicycles
+1485,trash can
+1486,papaya
+1487,action figure
+1488,kneeling
+1489,grazing on
+1490,cloths
+1491,coach
+1492,spraying
+1493,pocket watch
+1494,games
+1495,terminal
+1496,parked
+1497,duck
+1498,net
+1499,balloon
+1500,rice
+1501,stuffed dog
+1502,uncomfortable
+1503,messy
+1504,coleslaw
+1505,rubber
+1506,simple
+1507,uniforms
+1508,antique
+1509,coke
+1510,skyscraper
+1511,turtle
+1512,intersection
+1513,hollow
+1514,doll
+1515,head
+1516,clothes
+1517,mailbox
+1518,cowboy
+1519,wading in
+1520,meats
+1521,painted on
+1522,jackets
+1523,trailer
+1524,posing
+1525,cardboard
+1526,pedestrians
+1527,peeled
+1528,parked at
+1529,sitting atop
+1530,peanut
+1531,topped with
+1532,cooler
+1533,vitamins
+1534,floor
+1535,weathered
+1536,vine
+1537,sneakers
+1538,ramekin
+1539,french toast
+1540,topping
+1541,sticky notes
+1542,silver
+1543,station
+1544,raspberry
+1545,foggy
+1546,spinach
+1547,buns
+1548,boys
+1549,garment
+1550,sitting under
+1551,winding
+1552,shopping bag
+1553,paw
+1554,screen
+1555,shopper
+1556,carrot
+1557,cane
+1558,skating
+1559,carrots
+1560,skirt
+1561,cream cheese
+1562,wii controllers
+1563,electronic
+1564,enclosing
+1565,pepperoni
+1566,toothpicks
+1567,mountain peak
+1568,elderly
+1569,temple
+1570,steps
+1571,served on
+1572,pouring
+1573,breakable
+1574,machine
+1575,yard
+1576,alligator
+1577,coin
+1578,standing on
+1579,beach
+1580,sunglasses
+1581,vehicles
+1582,bending
+1583,diamond
+1584,pine tree
+1585,ice
+1586,cakes
+1587,audience
+1588,noodles
+1589,crackers
+1590,leopard
+1591,analog
+1592,mounted to
+1593,computer
+1594,almonds
+1595,manicured
+1596,pills
+1597,bananas
+1598,power
+1599,plates
+1600,dense
+1601,batteries
+1602,puddle
+1603,tablet
+1604,gym
+1605,elmo
+1606,hotdog bun
+1607,growing in
+1608,waste basket
+1609,figurines
+1610,crumbs
+1611,bench
+1612,pasture
+1613,food processor
+1614,tractors
+1615,blooming
+1616,intricate
+1617,pulled by
+1618,avocados
+1619,christmas lights
+1620,arm
+1621,gown
+1622,clean
+1623,raisins
+1624,feeder
+1625,ears
+1626,looking down at
+1627,officers
+1628,apron
+1629,fire extinguisher
+1630,dish soap
+1631,bridge
+1632,trunks
+1633,pocket
+1634,tissues
+1635,hung on
+1636,balding
+1637,clock tower
+1638,athletic shoe
+1639,remote controls
+1640,bus
+1641,cutting
+1642,officer
+1643,meatballs
+1644,beak
+1645,digital
+1646,paintings
+1647,backyard
+1648,dispenser
+1649,brush
+1650,perched
+1651,egg shell
+1652,artwork
+1653,turbine
+1654,manhole cover
+1655,toolbox
+1656,diced
+1657,sailboats
+1658,radiator
+1659,stuck in
+1660,mattress
+1661,pens
+1662,salad
+1663,light switch
+1664,entrance
+1665,blueberries
+1666,reflected
+1667,choppy
+1668,dough
+1669,mouse pad
+1670,vegetables
+1671,egg roll
+1672,clouds
+1673,ear
+1674,designed
+1675,orange
+1676,crowd
+1677,leggings
+1678,old
+1679,baseball bat
+1680,boar
+1681,gravy
+1682,jumping
+1683,coffee pot
+1684,steam
+1685,by
+1686,leafy
+1687,animal
+1688,coffee cup
+1689,lily
+1690,riding in
+1691,stadium
+1692,wood
+1693,policeman
+1694,flag
+1695,suitcase
+1696,bar stool
+1697,wheels
+1698,bar stools
+1699,tongue
+1700,faded
+1701,horn
+1702,stage
+1703,pine trees
+1704,envelope
+1705,upside down
+1706,bush
+1707,polar
+1708,parked next to
+1709,regular
+1710,children
+1711,toy
+1712,seat belt
+1713,feta cheese
+1714,powerful
+1715,wing
+1716,sitting by
+1717,baking pan
+1718,nightstands
+1719,chickpeas
+1720,lunch box
+1721,motorcycles
+1722,bats
+1723,fisherman
+1724,hanging on
+1725,flowered
+1726,gold
+1727,tray
+1728,dirty
+1729,glass
+1730,storage box
+1731,granola
+1732,flying through
+1733,dresses
+1734,controller
+1735,growing near
+1736,onions
+1737,female
+1738,caramel
+1739,sitting near
+1740,dress
+1741,looking at
+1742,near
+1743,mask
+1744,ambulance
+1745,eagle
+1746,off
+1747,surfboard
+1748,pretzels
+1749,bushy
+1750,tomatoes
+1751,winter
+1752,tied
+1753,raisin
+1754,gas pump
+1755,baked
+1756,greasy
+1757,diaper
+1758,desert
+1759,brushing
+1760,tower
+1761,baskets
+1762,raspberries
+1763,beer
+1764,xbox controller
+1765,blind
+1766,control panel
+1767,rice cooker
+1768,rainbow colored
+1769,ship
+1770,mowed
+1771,floating in
+1772,fountain
+1773,long
+1774,blinds
+1775,caucasian
+1776,cupboard
+1777,jumping off
+1778,wine
+1779,wireless
+1780,earphones
+1781,cordless
+1782,snake
+1783,driver
+1784,seat
+1785,parking meter
+1786,open
+1787,pumpkins
+1788,going into
+1789,figurine
+1790,family
+1791,lilies
+1792,zoo
+1793,bottle cap
+1794,mud
+1795,cloudy
+1796,shining through
+1797,colorful
+1798,water bottles
+1799,tree
+1800,backpack
+1801,steering wheel
+1802,dragon
+1803,outfit
+1804,to the right of
+1805,bagels
+1806,number
+1807,skillet
+1808,remote control
+1809,cracker
+1810,vinyl
+1811,herd
+1812,holding
+1813,new
+1814,batter
+1815,puppy
+1816,pillars
+1817,striped
+1818,tennis balls
+1819,full of
+1820,speckled
+1821,reading
+1822,seagull
+1823,powder
+1824,geese
+1825,container
+1826,olive oil
+1827,shopping cart
+1828,restaurants
+1829,pastry
+1830,knit
+1831,traffic lights
+1832,pork
+1833,tool
+1834,toaster
+1835,panda bears
+1836,swimsuit
+1837,plush
+1838,soap dispensers
+1839,sun
+1840,egg
+1841,cabbage
+1842,salon
+1843,bread loaf
+1844,batting
+1845,black and white
+1846,buoy
+1847,sitting at
+1848,ice-cream cone
+1849,wristband
+1850,bell tower
+1851,highway
+1852,chili
+1853,dry
+1854,ladle
+1855,chinese
+1856,pumpkin
+1857,pen
+1858,crane
+1859,sitting with
+1860,serving tray
+1861,mango
+1862,racket
+1863,mashed potatoes
+1864,fine
+1865,path
+1866,stapler
+1867,shower
+1868,instrument
+1869,carved
+1870,boy
+1871,pub
+1872,standing in front of
+1873,dress shirt
+1874,game
+1875,working on
+1876,cups
+1877,partly cloudy
+1878,hillside
+1879,ceramic
+1880,unpaved
+1881,abstract
+1882,outdoor
+1883,wire
+1884,eye
+1885,blowing
+1886,mane
+1887,light colored
+1888,pond
+1889,airplane
+1890,post
+1891,cone
+1892,frame
+1893,potatoes
+1894,serving dish
+1895,angled
+1896,parked alongside
+1897,pizza
+1898,cauliflower
+1899,bowls
+1900,gas stove
+1901,tennis
+1902,ceiling
+1903,runway
+1904,splashing
+1905,table lamp
+1906,cord
+1907,notepad
+1908,boiled
+1909,blenders
+1910,hour hand
+1911,peeling
+1912,cd
+1913,penguin
+1914,dinosaurs
+1915,neck
+1916,sugar
+1917,stuffed animals
+1918,hair dryer
+1919,dvds
+1920,taco
+1921,chasing
+1922,next to
+1923,word
+1924,tag
+1925,pointing at
+1926,suspended
+1927,blue
+1928,olive
+1929,herb
+1930,cheetah
+1931,burning
+1932,sheep
+1933,vehicle
+1934,driving on
+1935,money
+1936,spoons
+1937,console
+1938,crates
+1939,cookie jar
+1940,flowers
+1941,lady
+1942,helmets
+1943,curled
+1944,t-shirt
+1945,window
+1946,match
+1947,lip
+1948,wet
+1949,cupcakes
+1950,sweet
+1951,coffee shop
+1952,fence post
+1953,blank
+1954,funny
+1955,beans
+1956,angry bird
+1957,airport
+1958,bears
+1959,refrigerator
+1960,sitting beside
+1961,moose
+1962,light fixture
+1963,pigeons
+1964,oven door
+1965,swamp
+1966,gorilla
+1967,fried
+1968,tight
+1969,staircase
+1970,desserts
+1971,coffee
+1972,sky
+1973,rope
+1974,rippling
+1975,egg carton
+1976,blossoms
+1977,sponge
+1978,elevator
+1979,walking through
+1980,branch
+1981,restroom
+1982,broccoli
+1983,sprinkled
+1984,numbers
+1985,standing beside
+1986,goal
+1987,complete
+1988,side table
+1989,guy
+1990,symbol
+1991,tissue
+1992,leather
+1993,snacks
+1994,calf
+1995,ice cream
+1996,bakery
+1997,unpeeled
+1998,flower
+1999,snow flakes
+2000,red
+2001,stove
+2002,sitting on
+2003,face mask
+2004,cans
+2005,armchair
+2006,napkin dispenser
+2007,salt
+2008,hurdle
+2009,gummy bear
+2010,gun
+2011,rug
+2012,skateboarder
+2013,muscular
+2014,people
+2015,forks
+2016,beverages
+2017,factory
+2018,light bulb
+2019,life jacket
+2020,fire truck
+2021,chain
+2022,grassy
+2023,licking
+2024,fan
+2025,snow pants
+2026,hat
+2027,barn
+2028,customers
+2029,canoe
+2030,bartender
+2031,rounded
+2032,raised
+2033,bird
+2034,evergreen
+2035,barbed
+2036,curious
+2037,vase
+2038,binder
+2039,pig
+2040,hills
+2041,seed
+2042,mall
+2043,statue
+2044,frozen
+2045,skiing
+2046,cat
+2047,horizontal
+2048,flying above
+2049,whisk
+2050,smelling
+2051,commercial
+2052,iced
+2053,hand soap
+2054,entering
+2055,sushi
+2056,cranberries
+2057,keyboards
+2058,hanging from
+2059,roadway
+2060,plantains
+2061,bomb
+2062,hanging off
+2063,ornate
+2064,boats
+2065,mat
+2066,clock hand
+2067,fur
+2068,smoke stack
+2069,spread
+2070,looking toward
+2071,shelf
+2072,grinder
+2073,sleeveless
+2074,alarm clock
+2075,antelopes
+2076,egg yolk
+2077,beer can
+2078,radio
+2079,bugs
+2080,sturdy
+2081,stacked
+2082,seal
+2083,tents
+2084,trays
+2085,wrinkly
+2086,cigarette
+2087,leaning against
+2088,larger than
+2089,scrambled
+2090,candles
+2091,name tag
+2092,lower
+2093,computer mouse
+2094,elevated
+2095,beds
+2096,peacock
+2097,chewing
+2098,bedding
+2099,logs
+2100,observing
+2101,polished
+2102,dolphin
+2103,paper container
+2104,denim
+2105,coming from
+2106,toothbrushes
+2107,stones
+2108,pizza slice
+2109,arms
+2110,wires
+2111,poster
+2112,library
+2113,eiffel tower
+2114,lid
+2115,wii
+2116,printer
+2117,backpacks
+2118,ropes
+2119,girl
+2120,waterfall
+2121,cookie dough
+2122,paint brush
+2123,gifts
+2124,broth
+2125,water bottle
+2126,speaker
+2127,candies
+2128,kites
+2129,river
+2130,blouse
+2131,mice
+2132,daisy
+2133,shower door
+2134,icing
+2135,beef
+2136,meat
+2137,framed
+2138,fancy
+2139,typing on
+2140,photographer
+2141,shampoo bottle
+2142,sprinkles
+2143,notebook
+2144,soldiers
+2145,hangar
+2146,mustache
+2147,reflected in
+2148,approaching
+2149,leaves
+2150,uniform
+2151,making
+2152,decoration
+2153,feeding
+2154,guests
+2155,walking behind
+2156,hippo
+2157,shoppers
+2158,powdered sugar
+2159,inflated
+2160,words
+2161,asparagus
+2162,park
+2163,video camera
+2164,chocolate chips
+2165,photographing
+2166,silk
+2167,ostrich
+2168,paved
+2169,worn around
+2170,bent
+2171,raw
+2172,balancing on
+2173,snow shoes
+2174,orchid
+2175,teddy bear
+2176,beets
+2177,hilltop
+2178,tree leaves
+2179,herding
+2180,massive
+2181,suits
+2182,between
+2183,beaded
+2184,city
+2185,brunette
+2186,guitar
+2187,skateboards
+2188,video game
+2189,shopping center
+2190,couches
+2191,covered
+2192,underwear
+2193,champagne
+2194,toilet brush
+2195,pavement
+2196,monitors
+2197,cloudless
+2198,to the left of
+2199,lettuce
+2200,delicious
+2201,daughter
+2202,sauce
+2203,plier
+2204,train tracks
+2205,standing in
+2206,about to hit
+2207,cranberry
+2208,boots
+2209,cookies
+2210,bandage
+2211,museum
+2212,camera
+2213,tables
+2214,bathtub
+2215,balcony
+2216,casserole
+2217,carrying
+2218,cinnamon roll
+2219,braided
+2220,stormy
+2221,chain-link
+2222,cheese cube
+2223,packed
+2224,parked by
+2225,placemat
+2226,jagged
+2227,rhino
+2228,stick
+2229,cart
+2230,candle holder
+2231,flying in
+2232,fog
+2233,hard drive
+2234,picnic table
+2235,canister
+2236,mint
+2237,boulders
+2238,oranges
+2239,wings
+2240,snoopy
+2241,indoors
+2242,tossing
+2243,women
+2244,capital
+2245,checkered
+2246,jeep
+2247,customer
+2248,tent
+2249,toilet
+2250,castle
+2251,looking out
+2252,piled
+2253,neon
+2254,turned
+2255,plant
+2256,carpeted
+2257,leaning over
+2258,lying next to
+2259,sporting equipment
+2260,stuffed
+2261,american
+2262,soft
+2263,pigeon
+2264,mixing bowl
+2265,bookshelf
+2266,dusty
+2267,earring
+2268,coffee cups
+2269,kiwis
+2270,going down
+2271,cloth
+2272,flames
+2273,purse
+2274,taller than
+2275,skiing on
+2276,picnic tables
+2277,vertical
+2278,rabbit
+2279,coming down
+2280,balloons
+2281,headphones
+2282,grass
+2283,mickey mouse
+2284,magazines
+2285,cages
+2286,eggs
+2287,porch
+2288,computers
+2289,nut
+2290,towers
+2291,climbing
+2292,roasted
+2293,letters
+2294,store
+2295,drink
+2296,sandwiches
+2297,ice maker
+2298,coffee table
+2299,policemen
+2300,tiny
+2301,bat
+2302,bigger than
+2303,rain
+2304,crown
+2305,on the bottom of
+2306,exiting
+2307,shaving cream
+2308,waitress
+2309,navy
+2310,abundant
+2311,nightstand
+2312,domed
+2313,lamp shade
+2314,girls
+2315,melon
+2316,spectator
+2317,hamburgers
+2318,grater
+2319,baking sheet
+2320,flamingo
+2321,gas station
+2322,sword
+2323,cooked
+2324,cake stand
+2325,porcelain
+2326,riding
+2327,muffins
+2328,curvy
+2329,palm tree
+2330,tropical
+2331,lemon
+2332,garlic
+2333,hanging out of
+2334,floppy
+2335,keypad
+2336,hands
+2337,sniffing
+2338,patterned
+2339,shredded
+2340,hippos
+2341,aquarium
+2342,chairs
+2343,swan
+2344,bird house
+2345,cobblestone
+2346,mangoes
+2347,giraffes
+2348,support
+2349,home plate
+2350,bowl
+2351,glove
+2352,performing trick
+2353,lab coat
+2354,thumb
+2355,pockets
+2356,hair
+2357,sausage
+2358,cup
+2359,american flag
+2360,waiting for
+2361,waffles
+2362,jumping in
+2363,crosswalk
+2364,baseball
+2365,cafe
+2366,dolls
+2367,corn
+2368,whale
+2369,beside
+2370,dog food
+2371,puffy
+2372,kite
+2373,twig
+2374,wheel
+2375,leading
+2376,tourists
+2377,walls
+2378,attached
+2379,snowboarding
+2380,bread
+2381,dog
+2382,bald
+2383,soda cans
+2384,inflatable
+2385,kettle
+2386,feathered
+2387,sconce
+2388,worn
+2389,sculpture
+2390,nest
+2391,jacket
+2392,sunny
+2393,gas
+2394,bushes
+2395,biscuit
+2396,butterflies
+2397,zebra
+2398,bucket
+2399,scooter
+2400,lambs
+2401,bikini
+2402,desk lamp
+2403,grouped
+2404,playing
+2405,monkey
+2406,neat
+2407,cutting board
+2408,inside
+2409,tennis ball
+2410,pedestrian
+2411,walking to
+2412,wild
+2413,preparing
+2414,seeds
+2415,wallet
+2416,kimono
+2417,butter
+2418,dishes
+2419,sitting in
+2420,sparse
+2421,supermarket
+2422,crumbled
+2423,hats
+2424,masks
+2425,unhappy
+2426,shirtless
+2427,pulling
+2428,glasses
+2429,crust
+2430,at
+2431,lying on top of
+2432,guys
+2433,hotel
+2434,wall
+2435,soft drink
+2436,running across
+2437,dvd players
+2438,trash bag
+2439,apple logo
+2440,sea
+2441,eyes
+2442,clay
+2443,overcast
+2444,milkshake
+2445,nose
+2446,utensils
+2447,shadowed
+2448,lying
+2449,crisp
+2450,on the other side of
+2451,butterfly
+2452,cinnamon
+2453,blossom
+2454,collar
+2455,sitting next to
+2456,croissant
+2457,man
+2458,drapes
+2459,walking with
+2460,appetizer
+2461,dark colored
+2462,hardwood
+2463,trash
+2464,dressing
+2465,running in
+2466,shorts
+2467,kiwi
+2468,spiral
+2469,bus stop
+2470,hill
+2471,dangling
+2472,passenger
+2473,in front of
+2474,microwave oven
+2475,shield
+2476,crispy
+2477,bubble
+2478,old fashioned
+2479,beach chair
+2480,drinks
+2481,apples
+2482,almond
+2483,paper
+2484,cliff
+2485,bicycle
+2486,benches
+2487,bookcase
+2488,visitor
+2489,packet
+2490,deer
+2491,dark brown
+2492,empty
+2493,parked along
+2494,driving down
+2495,entertainment center
+2496,cameras
+2497,lions
+2498,talking on
+2499,on the side of
+2500,banana bunch
+2501,parrot
+2502,sheer
+2503,traveling on
+2504,athletic
+2505,standing near
+2506,soldier
+2507,umbrellas
+2508,spinning
+2509,door frame
+2510,drinking from
+2511,sleeping
+2512,wildflowers
+2513,sitting
+2514,eagles
+2515,poodle
+2516,bedroom
+2517,bikes
+2518,moving
+2519,baby
+2520,khaki
+2521,lake
+2522,torn
+2523,appetizers
+2524,beach umbrella
+2525,picture frame
+2526,tomato sauce
+2527,football
+2528,hugging
+2529,baseball bats
+2530,bathroom
+2531,dining table
+2532,covered with
+2533,washing
+2534,beads
+2535,papers
+2536,chrome
+2537,growing from
+2538,crossing
+2539,water
+2540,feathers
+2541,pineapples
+2542,sitting around
+2543,barren
+2544,cow
+2545,hanging
+2546,sleeping in
+2547,ornaments
+2548,village
+2549,aircraft
+2550,trying to catch
+2551,parking lot
+2552,street sign
+2553,entree
+2554,wig
+2555,shelter
+2556,lips
+2557,quilted
+2558,microwave
+2559,dumpster
+2560,egg white
+2561,farmer
+2562,running
+2563,keyboard
+2564,crooked
+2565,riding boots
+2566,trimmed
+2567,bedspread
+2568,car
+2569,cleaning
+2570,peaches
+2571,flour

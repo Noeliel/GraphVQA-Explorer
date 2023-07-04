@@ -1,0 +1,150 @@
+<div class="element-list-element-container">
+    <mat-selection-list
+        dense
+        #elements
+        (selectionChange)="
+            onElementListSelection($event, elements.selectedOptions.selected)
+        "
+        [multiple]="false"
+        [disableRipple]="true"
+    >
+        <div mat-subheader>Objects ({{ objects.length }})</div>
+        <mat-list-option
+            elementListRipple
+            *ngFor="let object of objects"
+            class="object-list-element"
+            [value]="object"
+        >
+            <mat-icon mat-list-icon>adjust</mat-icon>
+            <div class="list-object-grid-container" style="padding-top: 12px">
+                <p mat-line class="info-object-list-element">
+                    <b>{{ object.name }}</b
+                    ><span style="margin-left: 7px; color: gray"
+                        >(#{{ object.id }})</span
+                    ><br />
+                    {{ object.description || "-" }}
+                </p>
+                <p mat-line class="edit-object-list-element">
+                    <button
+                        mat-icon-button
+                        aria-label="Edit Object"
+                        style="color: #4e4e4e"
+                        (click)="
+                            onEditElementListObjectButtonClicked(
+                                $event,
+                                object.id
+                            )
+                        "
+                    >
+                        <mat-icon style="font-size: 20px">edit</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        aria-label="Change Object Bounding Box"
+                        style="color: #4e4e4e"
+                        (click)="
+                            onChangeElementListObjectBoundingBoxButtonClicked(
+                                $event,
+                                object.id
+                            )
+                        "
+                    >
+                        <mat-icon style="font-size: 20px"
+                            >aspect_ratio</mat-icon
+                        >
+                    </button>
+                    <button
+                        mat-icon-button
+                        aria-label="Delete Object"
+                        style="color: #4e4e4e"
+                        (click)="
+                            onRemoveElementListObjectButtonClicked(
+                                $event,
+                                object.id
+                            )
+                        "
+                    >
+                        <mat-icon style="font-size: 20px">delete</mat-icon>
+                    </button>
+                </p>
+            </div>
+        </mat-list-option>
+        <mat-divider
+            *ngIf="
+                controller.widgetDisplayMode?._tab ==
+                    controller.widgetDisplayMode?.PredictionDisplayModeTab &&
+                synthetic_relations.length > 0
+            "
+        ></mat-divider>
+        <div
+            mat-subheader
+            *ngIf="
+                controller.widgetDisplayMode?._tab ==
+                    controller.widgetDisplayMode?.PredictionDisplayModeTab &&
+                synthetic_relations.length > 0
+            "
+        >
+            Synthetic Relations ({{ synthetic_relations.length }})
+        </div>
+        <mat-list-option
+            elementListRipple
+            *ngFor="let relation of synthetic_relations"
+            [value]="relation"
+            class="relation-list-element"
+        >
+            <mat-icon mat-list-icon>arrow_right_alt</mat-icon>
+            <div class="list-object-grid-container" style="padding-top: 12px">
+                <p mat-line class="info-relation-list-element">
+                    {{ relation.name }}<br />
+                    {{ relation.description || "-" }}
+                </p>
+            </div>
+        </mat-list-option>
+        <mat-divider *ngIf="relations.length > 0"></mat-divider>
+        <div mat-subheader *ngIf="relations.length > 0">
+            Relations ({{ relations.length }})
+        </div>
+        <mat-list-option
+            elementListRipple
+            *ngFor="let relation of relations"
+            [value]="relation"
+            class="relation-list-element"
+        >
+            <mat-icon mat-list-icon>arrow_right_alt</mat-icon>
+            <div class="list-object-grid-container" style="padding-top: 12px">
+                <p mat-line class="info-relation-list-element">
+                    {{ relation.name }}<br />
+                    {{ relation.description || "-" }}
+                </p>
+                <p mat-line class="edit-relation-list-element">
+                    <button
+                        mat-icon-button
+                        aria-label="Edit Relation"
+                        style="color: #4e4e4e"
+                        (click)="
+                            onEditElementListRelationButtonClicked(
+                                $event,
+                                relation.id
+                            )
+                        "
+                    >
+                        <mat-icon style="font-size: 20px">edit</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        aria-label="Delete Relation"
+                        style="color: #4e4e4e"
+                        (click)="
+                            onRemoveElementListRelationButtonClicked(
+                                $event,
+                                relation.id
+                            )
+                        "
+                    >
+                        <mat-icon style="font-size: 20px">delete</mat-icon>
+                    </button>
+                </p>
+            </div>
+        </mat-list-option>
+    </mat-selection-list>
+</div>

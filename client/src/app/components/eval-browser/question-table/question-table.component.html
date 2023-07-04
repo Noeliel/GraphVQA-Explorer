@@ -1,0 +1,309 @@
+<table
+    mat-table
+    [dataSource]="questionDataSource"
+    matSort
+    #question_sort="matSort"
+    matTableExporter
+    #exporter="matTableExporter"
+>
+    <!-- Question ID Column -->
+    <ng-container matColumnDef="question_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>question_id</th>
+        <td mat-cell *matCellDef="let row">{{ row.question_id }}</td>
+    </ng-container>
+
+    <!-- Scene ID Column -->
+    <ng-container matColumnDef="scene_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>scene_id</th>
+        <td mat-cell *matCellDef="let row">
+            <a routerLink="/scene/{{ row.scene_id }}">{{ row.scene_id }}</a>
+        </td>
+    </ng-container>
+
+    <!-- Question Column -->
+    <ng-container matColumnDef="question">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>question</th>
+        <td mat-cell *matCellDef="let row">{{ row.question }}</td>
+    </ng-container>
+
+    <!-- Ambiguity Column -->
+    <ng-container matColumnDef="ambiguity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ambiguity</th>
+        <td mat-cell *matCellDef="let row">{{ row.ambiguity }}</td>
+    </ng-container>
+
+    <!-- Ground Truth Column -->
+    <ng-container matColumnDef="ground_truth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ground_truth</th>
+        <td mat-cell *matCellDef="let row">{{ row.ground_truth }}</td>
+    </ng-container>
+
+    <!-- Prediction 1 Column -->
+    <ng-container matColumnDef="prediction_1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>prediction_1</th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [ngClass]="
+                row.ground_truth == row.prediction_1
+                    ? 'correct-answer'
+                    : 'incorrect-answer'
+            "
+            [title]="cellTitleForPrediction(row.prediction_1, row.ground_truth)"
+        >
+            {{ row.prediction_1 }}
+        </td>
+    </ng-container>
+
+    <!-- Confidence 1 Column -->
+    <ng-container matColumnDef="confidence_1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>confidence_1</th>
+        <td mat-cell *matCellDef="let row" [title]="row.confidence_1">
+            {{ processConfidenceForDisplay(row.confidence_1) }}
+        </td>
+    </ng-container>
+
+    <!-- Correctness 1 Column -->
+    <ng-container matColumnDef="correct_1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>correct_1</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.correct_1 }}
+        </td>
+    </ng-container>
+
+    <!-- Prediction 2 Column -->
+    <ng-container matColumnDef="prediction_2">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>prediction_2</th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [ngClass]="
+                row.ground_truth == row.prediction_2
+                    ? 'correct-answer'
+                    : 'incorrect-answer'
+            "
+            [title]="cellTitleForPrediction(row.prediction_2, row.ground_truth)"
+        >
+            {{ row.prediction_2 }}
+        </td>
+    </ng-container>
+
+    <!-- Confidence 2 Column -->
+    <ng-container matColumnDef="confidence_2">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>confidence_2</th>
+        <td mat-cell *matCellDef="let row" [title]="row.confidence_2">
+            {{ processConfidenceForDisplay(row.confidence_2) }}
+        </td>
+    </ng-container>
+
+    <!-- Correctness 2 Column -->
+    <ng-container matColumnDef="correct_2">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>correct_2</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.correct_2 }}
+        </td>
+    </ng-container>
+
+    <!-- Prediction 3 Column -->
+    <ng-container matColumnDef="prediction_3">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>prediction_3</th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [ngClass]="
+                row.ground_truth == row.prediction_3
+                    ? 'correct-answer'
+                    : 'incorrect-answer'
+            "
+            [title]="cellTitleForPrediction(row.prediction_3, row.ground_truth)"
+        >
+            {{ row.prediction_3 }}
+        </td>
+    </ng-container>
+
+    <!-- Confidence 3 Column -->
+    <ng-container matColumnDef="confidence_3">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>confidence_3</th>
+        <td mat-cell *matCellDef="let row" [title]="row.confidence_3">
+            {{ processConfidenceForDisplay(row.confidence_3) }}
+        </td>
+    </ng-container>
+
+    <!-- Correctness 3 Column -->
+    <ng-container matColumnDef="correct_3">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>correct_3</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.correct_3 }}
+        </td>
+    </ng-container>
+
+    <!-- Prediction 4 Column -->
+    <ng-container matColumnDef="prediction_4">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>prediction_4</th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [ngClass]="
+                row.ground_truth == row.prediction_4
+                    ? 'correct-answer'
+                    : 'incorrect-answer'
+            "
+            [title]="cellTitleForPrediction(row.prediction_4, row.ground_truth)"
+        >
+            {{ row.prediction_4 }}
+        </td>
+    </ng-container>
+
+    <!-- Confidence 4 Column -->
+    <ng-container matColumnDef="confidence_4">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>confidence_4</th>
+        <td mat-cell *matCellDef="let row" [title]="row.confidence_4">
+            {{ processConfidenceForDisplay(row.confidence_4) }}
+        </td>
+    </ng-container>
+
+    <!-- Correctness 4 Column -->
+    <ng-container matColumnDef="correct_4">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>correct_4</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.correct_4 }}
+        </td>
+    </ng-container>
+
+    <!-- Prediction 5 Column -->
+    <ng-container matColumnDef="prediction_5">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>prediction_5</th>
+        <td
+            mat-cell
+            *matCellDef="let row"
+            [ngClass]="
+                row.ground_truth == row.prediction_5
+                    ? 'correct-answer'
+                    : 'incorrect-answer'
+            "
+            [title]="cellTitleForPrediction(row.prediction_5, row.ground_truth)"
+        >
+            {{ row.prediction_5 }}
+        </td>
+    </ng-container>
+
+    <!-- Confidence 5 Column -->
+    <ng-container matColumnDef="confidence_5">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>confidence_5</th>
+        <td mat-cell *matCellDef="let row" [title]="row.confidence_5">
+            {{ processConfidenceForDisplay(row.confidence_5) }}
+        </td>
+    </ng-container>
+
+    <!-- Correctness 5 Column -->
+    <ng-container matColumnDef="correct_5">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>correct_5</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.correct_5 }}
+        </td>
+    </ng-container>
+
+    <!-- Focus 1 Column -->
+    <ng-container matColumnDef="focus_1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>focus_1</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.focus_1 }}
+        </td>
+    </ng-container>
+
+    <!-- Weight 1 Column -->
+    <ng-container matColumnDef="weight_1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>weight_1</th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_1">
+            {{ processConfidenceForDisplay(row.weight_1) }}
+        </td>
+    </ng-container>
+
+    <!-- Focus 2 Column -->
+    <ng-container matColumnDef="focus_2">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>focus_2</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.focus_2 }}
+        </td>
+    </ng-container>
+
+    <!-- Weight 2 Column -->
+    <ng-container matColumnDef="weight_2">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>weight_2</th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_2">
+            {{ processConfidenceForDisplay(row.weight_2) }}
+        </td>
+    </ng-container>
+
+    <!-- Focus 3 Column -->
+    <ng-container matColumnDef="focus_3">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>focus_3</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.focus_3 }}
+        </td>
+    </ng-container>
+
+    <!-- Weight 3 Column -->
+    <ng-container matColumnDef="weight_3">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>weight_3</th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_3">
+            {{ processConfidenceForDisplay(row.weight_3) }}
+        </td>
+    </ng-container>
+
+    <!-- Focus 4 Column -->
+    <ng-container matColumnDef="focus_4">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>focus_4</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.focus_4 }}
+        </td>
+    </ng-container>
+
+    <!-- Weight 4 Column -->
+    <ng-container matColumnDef="weight_4">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>weight_4</th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_4">
+            {{ processConfidenceForDisplay(row.weight_4) }}
+        </td>
+    </ng-container>
+
+    <!-- Focus 5 Column -->
+    <ng-container matColumnDef="focus_5">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>focus_5</th>
+        <td mat-cell *matCellDef="let row">
+            {{ row.focus_5 }}
+        </td>
+    </ng-container>
+
+    <!-- Weight 5 Column -->
+    <ng-container matColumnDef="weight_5">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>weight_5</th>
+        <td mat-cell *matCellDef="let row" [title]="row.weight_5">
+            {{ processConfidenceForDisplay(row.weight_5) }}
+        </td>
+    </ng-container>
+
+    <tr
+        mat-header-row
+        *matHeaderRowDef="preferences.displayed_question_columns; sticky: true"
+    ></tr>
+    <tr
+        mat-row
+        *matRowDef="let row; columns: preferences.displayed_question_columns"
+    ></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+            No data matching the filter criteria
+        </td>
+    </tr>
+</table>
+
+<mat-paginator
+    #question_paginator="matPaginator"
+    class="mat-paginator-sticky"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[10, 20, 50, 100, 250, 500]"
+    aria-label="Select page of questions"
+></mat-paginator>

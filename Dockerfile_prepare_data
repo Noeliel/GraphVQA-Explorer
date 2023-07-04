@@ -1,0 +1,10 @@
+FROM ubuntu:20.04
+
+RUN apt update; \
+    apt install -y ca-certificates curl unzip; \
+    apt clean
+
+RUN echo "Downloading SceneGraphs... This might take a few minutes depending on your internet connection..."
+
+RUN curl -O https://downloads.cs.stanford.edu/nlp/data/gqa/sceneGraphs.zip; \
+    unzip sceneGraphs.zip

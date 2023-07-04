@@ -1,0 +1,3 @@
+[submodule "server/GraphVQA"]
+	path = server/GraphVQA
+	url = https://github.com/codexxxl/GraphVQA.git

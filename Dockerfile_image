@@ -1,0 +1,8 @@
+FROM gqavis_base
+
+COPY server/requirements.txt .
+
+RUN eval "$(/root/miniconda3/bin/conda shell.bash hook)"; \
+    conda activate gqavis; \
+    pip install -r requirements.txt; \
+    rm requirements.txt

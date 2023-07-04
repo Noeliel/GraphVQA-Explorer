@@ -1,0 +1,40 @@
+table {
+    width: 100%;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.incorrect-answer {
+    color: red;
+}
+
+.mat-header-cell {
+    border-bottom: 2px solid lightgrey !important;
+}
+
+.mat-header-cell,
+.mat-cell {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border-right: 1px solid lightgrey !important;
+}
+
+.mat-column-question_id {
+    text-align: right;
+}
+
+.mat-column-scene_id {
+    text-align: center;
+}
+
+.mat-paginator-sticky {
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    position: sticky;
+    z-index: 1;
+    margin-top: -1px;
+    border-top: 2px solid lightgrey;
+}

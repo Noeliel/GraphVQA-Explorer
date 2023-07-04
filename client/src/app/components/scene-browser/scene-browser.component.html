@@ -1,0 +1,332 @@
+<div class="content-container" (window:resize)="onResize($event)">
+    <div #toolbar class="toolbar">
+        <!--
+            <div #toolbar class="toolbar" style="font-size: 18px">
+        -->
+        <!--<mat-form-field #keyword_field appearance="fill" style="width: 100%">
+            <mat-label *ngIf="keyword_field._control.focused"
+                >Keywords</mat-label
+            >
+            <mat-label *ngIf="!keyword_field._control.focused">{{
+                keyword_elem_title
+            }}</mat-label>
+            <input
+                matInput
+                [(ngModel)]="keywords"
+                (keydown.enter)="setKeywords()"
+            />
+        </mat-form-field>-->
+        <div style="display: flex">
+            <span
+                style="
+                    margin-right: 10px;
+                    margin-left: 10px;
+                    justify-self: center;
+                    align-self: center;
+                "
+            >
+                <mat-slide-toggle [(ngModel)]="filter_config.enable_train_split"
+                    >Include scenes from training split</mat-slide-toggle
+                >
+                <br />
+                <mat-slide-toggle [(ngModel)]="filter_config.enable_eval_split"
+                    >Include scenes from evaluation split</mat-slide-toggle
+                >
+            </span>
+            <span style="display: flex; width: 100%; text-align: center">
+                <span style="flex: 1">
+                    <mat-form-field
+                        appearance="fill"
+                        style="width: 100%; height: 100%"
+                    >
+                        <mat-label>Scene ID contains</mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="filter_config.scene_id"
+                            placeholder="Enter digits"
+                        />
+                        <button
+                            *ngIf="filter_config.scene_id"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="filter_config.scene_id = ''"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </span>
+                <span style="flex: 1">
+                    <mat-form-field
+                        appearance="fill"
+                        style="width: 100%; height: 100%"
+                    >
+                        <mat-label>Scene contains objects</mat-label>
+                        <mat-chip-list
+                            #chipListObjects
+                            aria-label="Object list"
+                        >
+                            <mat-chip
+                                *ngFor="
+                                    let object_name of filter_config.object_names
+                                "
+                                (removed)="
+                                    removeFilterString(
+                                        filter_config.object_names,
+                                        object_name
+                                    )
+                                "
+                            >
+                                {{ object_name }}
+                                <button matChipRemove>
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip>
+                            <input
+                                placeholder="Ex. airplane, table, umbrella"
+                                [matChipInputFor]="chipListObjects"
+                                [matChipInputSeparatorKeyCodes]="
+                                    separatorKeysCodes
+                                "
+                                [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="
+                                    addFilterString(
+                                        filter_config.object_names,
+                                        $event
+                                    )
+                                "
+                            />
+                        </mat-chip-list>
+                    </mat-form-field>
+                </span>
+                <span style="flex: 1">
+                    <mat-form-field
+                        appearance="fill"
+                        style="width: 100%; height: 100%"
+                    >
+                        <mat-label>Scene contains attributes</mat-label>
+                        <mat-chip-list
+                            #chipListAttributes
+                            aria-label="Attribute list"
+                        >
+                            <mat-chip
+                                *ngFor="
+                                    let object_attribute of filter_config.object_attributes
+                                "
+                                (removed)="
+                                    removeFilterString(
+                                        filter_config.object_attributes,
+                                        object_attribute
+                                    )
+                                "
+                            >
+                                {{ object_attribute }}
+                                <button matChipRemove>
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip>
+                            <input
+                                placeholder="Ex. wood, green, used, small"
+                                [matChipInputFor]="chipListAttributes"
+                                [matChipInputSeparatorKeyCodes]="
+                                    separatorKeysCodes
+                                "
+                                [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="
+                                    addFilterString(
+                                        filter_config.object_attributes,
+                                        $event
+                                    )
+                                "
+                            />
+                        </mat-chip-list>
+                    </mat-form-field>
+                </span>
+                <span style="flex: 1">
+                    <mat-form-field
+                        appearance="fill"
+                        style="width: 100%; height: 100%"
+                    >
+                        <mat-label>Scene contains relations</mat-label>
+                        <mat-chip-list
+                            #chipListRelations
+                            aria-label="Attribute list"
+                        >
+                            <mat-chip
+                                *ngFor="
+                                    let relation_name of filter_config.relation_names
+                                "
+                                (removed)="
+                                    removeFilterString(
+                                        filter_config.relation_names,
+                                        relation_name
+                                    )
+                                "
+                            >
+                                {{ relation_name }}
+                                <button matChipRemove>
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip>
+                            <input
+                                placeholder="Ex. behind, on, to the left of"
+                                [matChipInputFor]="chipListRelations"
+                                [matChipInputSeparatorKeyCodes]="
+                                    separatorKeysCodes
+                                "
+                                [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="
+                                    addFilterString(
+                                        filter_config.relation_names,
+                                        $event
+                                    )
+                                "
+                            />
+                        </mat-chip-list>
+                    </mat-form-field>
+                </span>
+                <!--<span style="flex: 1">
+                    <mat-form-field
+                        appearance="fill"
+                        style="width: 100%; height: 100%"
+                    >
+                        <mat-label>Scene is similar to</mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="filter_config.similarity_id"
+                            placeholder="Enter scene ID"
+                        />
+                        <button
+                            *ngIf="filter_config.similarity_id"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="filter_config.similarity_id = ''"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </span>-->
+            </span>
+            <span
+                style="
+                    display: inherit;
+                    margin-left: 10px;
+                    margin-top: 4px;
+                    margin-bottom: 4px;
+                    justify-self: center;
+                    align-self: center;
+                    flex-shrink: 1.5;
+                "
+            >
+                <mat-label style="margin-right: 6px">Sort by:</mat-label>
+                <mat-radio-group
+                    aria-label="Sorting"
+                    appearance="fill"
+                    [(ngModel)]="selected_sorting_option"
+                    [ngModelOptions]="{ standalone: true }"
+                >
+                    <mat-radio-button
+                        *ngFor="let sorting_option of sorting_options"
+                        [value]="sorting_option"
+                    >
+                        {{ sorting_options_labels[sorting_option] }}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </span>
+            <span style="display: inherit">
+                <button
+                    mat-flat-button
+                    (click)="requestData()"
+                    style="border-radius: 0"
+                >
+                    Apply Filter
+                </button>
+            </span>
+        </div>
+        <div class="toolbar-separator"></div>
+    </div>
+    <div class="loading-shade" *ngIf="data_is_loading">
+        <mat-icon color="primary" [inline]="true" style="font-size: 200px"
+            >hourglass_empty</mat-icon
+        >
+    </div>
+    <!-- container -->
+    <!-- <div style="overflow: scroll"> -->
+    <cdk-virtual-scroll-viewport #scroller itemSize="220" class="scroller">
+        <!-- scrollable -->
+        <div class="scroller-spacer"></div>
+        <div *cdkVirtualFor="let line of elem_lines" class="grid-line">
+            <!-- line -->
+            <div
+                *ngFor="let elem of line"
+                style="overflow: visible"
+                class="line-element"
+            >
+                <!-- element -->
+                <a
+                    routerLink="/scene/{{ elem.id }}"
+                    class="mat-elevation-z8"
+                    style="
+                        color: inherit;
+                        text-decoration: inherit;
+                        display: block;
+                        width: 260px;
+                        height: 180px;
+                        border-radius: 12px;
+                        overflow: hidden;
+                    "
+                >
+                    <!-- card -->
+                    <div
+                        style="
+                            width: 260px;
+                            height: 160px;
+                            overflow: hidden;
+                            justify-content: center;
+                            align-content: center;
+                            text-align: center;
+                        "
+                    >
+                        <mat-spinner
+                            *ngIf="!elem.thumbnail"
+                            [diameter]="70"
+                            class="mat-spinner-loading-thumbnail"
+                        ></mat-spinner>
+                        <img
+                            *ngIf="elem.thumbnail"
+                            src="{{ elem.thumbnail }}"
+                            style="width: 100%; height: 100%; object-fit: cover"
+                        />
+                    </div>
+                    <div
+                        style="
+                            width: 260px;
+                            height: 20px;
+                            justify-content: center;
+                            text-align: center;
+                        "
+                    >
+                        ID: <b>{{ elem.id }}</b> | Obj#:
+                        {{ elem.num_objects }} | Rel#:
+                        {{ elem.num_relations }}
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="scroller-spacer"></div>
+    </cdk-virtual-scroll-viewport>
+    <!-- </div> -->
+    <div class="fab-container">
+        <button
+            mat-fab
+            class="fab-toggler"
+            color="primary"
+            (click)="onAddNewSceneButtonClick()"
+        >
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>
+    Delete Object <b>{{ data.name }}</b> (#{{ data.id }})?
+</h1>
+<div mat-dialog-content>
+    <p>
+        Deleting this object also deletes all relations from and to this object.
+        This action can <b>not</b> be undone.
+    </p>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onCancelClick()" cdkFocusInitial>Cancel</button>
+    <button mat-button (click)="onConfirmClick()">
+        <b>Confirm</b>
+    </button>
+</div>

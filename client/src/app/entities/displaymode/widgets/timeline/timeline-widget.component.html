@@ -1,0 +1,45 @@
+<div
+    class="timelineContainer"
+    [style]="
+        'visibility: ' +
+        (shouldShowTimelineControl && timelineExists ? 'visible' : 'hidden')
+    "
+>
+    <div style="display: flex; justify-content: center; padding-bottom: 10px">
+        <mat-button-toggle-group
+            #timelineToggles
+            [formControl]="timelineControl"
+            aria-label="Font Style"
+        >
+            <div
+                style="
+                    display: table;
+                    background-color: #fff;
+                    border-right: solid 1px #e0e0e0;
+                    padding-left: 16px;
+                    padding-right: 16px;
+                "
+            >
+                <div style="display: table-cell; vertical-align: middle">
+                    <b>edge attention convolution</b>
+                </div>
+            </div>
+            <mat-button-toggle *ngFor="let step of _steps" value="{{ step }}">{{
+                step
+            }}</mat-button-toggle>
+            <button
+                mat-button
+                style="
+                    border-radius: 0px;
+                    background-color: #fff;
+                    border-left: solid 1px #e0e0e0;
+                "
+                (click)="toggle_animation()"
+            >
+                <mat-icon>{{
+                    is_animating ? "pause_circle_filled" : "play_circle_filled"
+                }}</mat-icon>
+            </button>
+        </mat-button-toggle-group>
+    </div>
+</div>

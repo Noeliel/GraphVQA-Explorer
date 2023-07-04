@@ -1,0 +1,64 @@
+<div class="grid-container">
+    <div class="top-panel-container mat-elevation-z5">
+        <div
+            class="panel-element"
+            style="
+                padding-top: 4px;
+                padding-left: 10px;
+                background-color: #f5f5f5;
+            "
+        >
+            <mat-label class="meta-label">
+                Scene: #{{ scene?.graph?.id || "?" }}, [{{
+                    scene?.graph?.split || "unknown"
+                }}] </mat-label
+            ><br />
+            <mat-label class="meta-label">
+                Location: {{ scene?.graph?.location || "-" }}, Weather:
+                {{ scene?.graph?.weather || "-" }}
+            </mat-label>
+        </div>
+        <div class="panel-separator-light"></div>
+        <app-display-mode-widget #widgetDisplayMode></app-display-mode-widget>
+        <div class="panel-separator"></div>
+        <app-qa-widget #widgetQA></app-qa-widget>
+        <div class="panel-separator"></div>
+        <app-element-filter-widget
+            #widgetElementFilter
+        ></app-element-filter-widget>
+    </div>
+    <div class="panel-separator-light panel-delimiter"></div>
+    <div class="bottom-panel-container">
+        <app-element-list-widget #widgetElementList></app-element-list-widget>
+    </div>
+</div>
+<div class="footer-container mat-elevation-z5">
+    <div class="panel-separator-light"></div>
+    <button
+        *ngIf="!widgetDisplayMode?.isInAnyPreviewMode()"
+        mat-stroked-button
+        class="add-element-button"
+        [matMenuTriggerFor]="addelementmenu"
+    >
+        Add Element
+    </button>
+    <button
+        *ngIf="widgetDisplayMode?.isInAnyPreviewMode()"
+        mat-stroked-button
+        class="add-element-button"
+        (click)="onCancelButtonClicked($event)"
+    >
+        Cancel
+    </button>
+    <mat-menu #addelementmenu="matMenu">
+        <button mat-menu-item (click)="onAddObjectButtonClicked($event)">
+            <mat-icon mat-list-icon>adjust</mat-icon>
+            <span>Object</span>
+        </button>
+        <button mat-menu-item (click)="onAddRelationButtonClicked($event)">
+            <mat-icon mat-list-icon>arrow_right_alt</mat-icon>
+            <span>Relation</span>
+        </button>
+    </mat-menu>
+    <mat-menu #emptymenu="matMenu"></mat-menu>
+</div>
