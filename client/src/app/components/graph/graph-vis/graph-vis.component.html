@@ -3,33 +3,159 @@
 <!--<canvas #canvas width="600" height="300"></canvas>-->
 <div #svgTooltip class="tooltip" style="z-index: 500"></div>
 <div style="width: 100%; height: 100%; position: relative">
-    <div style="display: block; height: 0; text-align: center">
-        <button
-            #resetZoomPanButton
-            mat-flat-button
-            class="overlay-button"
-            [style]="
-                'opacity: 30%; margin-top: 10px; visibility: ' +
-                (shouldShowZoomPanButton && viewIsZoomed ? 'visible' : 'hidden')
-            "
-            (click)="resetZoomPan()"
-        >
-            Reset Zoom and Pan
-        </button>
-    </div>
     <div style="display: block; height: 0; text-align: right">
         <button
             #toggleBackgroundButton
             mat-flat-button
+            matTooltip="Toggle Background Image"
             class="overlay-button"
             [style]="
-                'opacity: 30%; margin-top: 10px; margin-right: 10px; visibility: ' +
-                (shouldShowToggleBackgroundButton ? 'visible' : 'hidden')
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
             "
             (click)="toggleBackground()"
         >
             <mat-icon>
                 {{ background_visible ? "visibility_off" : "visibility" }}
+            </mat-icon>
+        </button>
+        <button
+            #toggleGraphButton
+            mat-flat-button
+            matTooltip="Toggle Scene Graph"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="toggleGraph()"
+        >
+            <mat-icon>
+                {{ graph_visible ? "gps_off" : "gps_not_fixed" }}
+            </mat-icon>
+        </button>
+        <button
+            #toggleGrayButton
+            mat-flat-button
+            matTooltip="Toggle Grayscale"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="toggleGray()"
+        >
+            <mat-icon>
+                {{ background_visible ? "gradient" : "gradient" }}
+            </mat-icon>
+        </button>
+        <button
+            #incBrightButton
+            mat-flat-button
+            matTooltip="Increase Image Brightness"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="incBright()"
+        >
+            <mat-icon>
+                {{ background_visible ? "brightness_high" : "brightness_high" }}
+            </mat-icon>
+        </button>
+        <button
+            #decBrightButton
+            mat-flat-button
+            matTooltip="Decrease Image Brightness"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="decBright()"
+        >
+            <mat-icon>
+                {{ background_visible ? "brightness_low" : "brightness_low" }}
+            </mat-icon>
+        </button>
+        <button
+            #incStrokeButton
+            mat-flat-button
+            matTooltip="Increase Graph Stroke"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="incStroke()"
+        >
+            <mat-icon>
+                {{ background_visible ? "add_circle_outline" : "add_circle_outline" }}
+            </mat-icon>
+        </button>
+        <button
+            #decStrokeButton
+            mat-flat-button
+            matTooltip="Decrease Graph Stroke"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="decStroke()"
+        >
+            <mat-icon>
+                {{ background_visible ? "remove_circle_outline" : "remove_circle_outline" }}
+            </mat-icon>
+        </button>
+        <button
+            #switchColorButton
+            mat-flat-button
+            matTooltip="Switch Color"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="switchCol()"
+        >
+            <mat-icon>
+                {{ background_visible ? "color_lens" : "color_lens" }}
+            </mat-icon>
+        </button>
+        <button
+            #toggleEdgeAnimationButton
+            mat-flat-button
+            matTooltip="Toggle Animation Widget"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="toggleAnimBar()"
+        >
+            <mat-icon>
+                {{ animation_bar_visible ? "motion_photos_off" : "animation" }}
+            </mat-icon>
+        </button>
+        <button
+            #toggleHideModePredictionButton
+            mat-flat-button
+            matTooltip="Toggle Hover-Hiding Of Elements In Prediction Mode"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="toggleHideHighlight()"
+        >
+            <mat-icon>
+                {{ nohideHighlight ? "lock" : "disabled_visible" }}
+            </mat-icon>
+        </button>
+        <button
+            #resetZoomPanButton
+            mat-flat-button
+            matTooltip="Reset"
+            class="overlay-button"
+            [style]="
+                'display: block; opacity: 40%; margin-top: 10px; margin-right: 10px; visibility: visible'
+            "
+            (click)="resetZoomPan()"
+        >
+            <mat-icon>
+                {{ background_visible ? "restart_alt" : "restart_alt" }}
             </mat-icon>
         </button>
     </div>

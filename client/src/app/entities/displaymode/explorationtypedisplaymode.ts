@@ -153,7 +153,8 @@ export abstract class ExplorationTypeDisplayMode extends DisplayMode {
             })
             .attr('width', '100%')
             .attr('height', '100%')
-            .attr('opacity', this.controller.background_visible ? '1' : '0');
+            .attr('opacity', this.controller.background_visible ? '1' : '0')
+            .attr('filter', 'brightness(' + this.controller.brightness.toString() + '%) grayscale(' + this.controller.grayscale.toString() + '%)');
 
         return background_update;
     }
@@ -207,11 +208,11 @@ export abstract class ExplorationTypeDisplayMode extends DisplayMode {
             .attr('stroke-width', '2')
             .attr('stroke', environment.colors.graph_node_bounding_box)
             // if the user has their mouse over an object's circle, it becomes highlighted -> make its bounding box visible
-            .attr('visibility', (d) => {
+            .attr('visibility', this.controller.graph_visible ? (d) => {
                 return SceneGraphObjectVisibility.HIGHLIGHTED == d.visibility
                     ? 'inherit'
                     : 'hidden';
-            });
+            } : 'hidden');
 
         return boundingboxes_update;
     }
@@ -268,17 +269,15 @@ export abstract class ExplorationTypeDisplayMode extends DisplayMode {
             .attr('r', (d) => {
                 return component.calculateRadiusForObject(d);
             })
-            .attr('stroke', (d) => {
-                return environment.colors.graph_node_stroke;
-            })
+            .attr('stroke', this.controller.strokecol)
             .attr('fill', (d) => {
                 return "url('#half-" + d.id + "')";
             })
-            .attr('visibility', (d) => {
+            .attr('visibility', this.controller.graph_visible ? (d) => {
                 return SceneGraphObjectVisibility.HIDDEN == d.visibility
                     ? 'hidden'
                     : 'inherit';
-            });
+            } : 'hidden');
         /*.append('title') // obsolete, simple tooltips
             .text((d) => {
                 return d.name;
@@ -339,7 +338,7 @@ export abstract class ExplorationTypeDisplayMode extends DisplayMode {
     }
 
     protected calculateRadiusForObject(object: SceneGraphObject): number {
-        return 3;
+        return 3 * this.controller.fattening;
     }
 
     protected calculatePathForRelationArrows(
@@ -493,6 +492,7 @@ export abstract class ExplorationTypeDisplayMode extends DisplayMode {
             null,
             SceneGraphObjectVisibility.HIDDEN
         );
+
         scene_graph.setObjectsVisibility(
             [obj_id],
             SceneGraphObjectVisibility.HIGHLIGHTED

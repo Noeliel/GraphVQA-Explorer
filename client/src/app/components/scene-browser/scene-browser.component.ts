@@ -34,6 +34,7 @@ enum SceneBrowserSorting {
 })
 export class SceneBrowserComponent implements OnInit, AfterViewInit {
     elems?: SceneListElement[];
+    elems2?: SceneListElement[];
     elem_lines?: SceneListElement[][];
     private current_num_lines = 1;
 
@@ -74,6 +75,9 @@ export class SceneBrowserComponent implements OnInit, AfterViewInit {
     ).map((key) => parseInt(key));
 
     _selected_sorting_option = SceneBrowserSorting.ID;
+
+    sort_order = false;
+    exclude_zeros = false;
 
     data_is_loading = false;
 
@@ -116,6 +120,16 @@ export class SceneBrowserComponent implements OnInit, AfterViewInit {
 
     set selected_sorting_option(option: SceneBrowserSorting) {
         this._selected_sorting_option = option;
+        this.finalizeDataForDisplay();
+    }
+
+    public switchOrder() {
+        this.sort_order = !this.sort_order;
+        this.finalizeDataForDisplay();
+    }
+
+    public switchZeros() {
+        this.exclude_zeros = !this.exclude_zeros;
         this.finalizeDataForDisplay();
     }
 
@@ -169,26 +183,49 @@ export class SceneBrowserComponent implements OnInit, AfterViewInit {
 
     private finalizeDataForDisplay() {
         const sort_option = this._selected_sorting_option;
+        let fct = 1;
+
+        if (!this.sort_order) fct = -1;
 
         this.elems?.sort((a, b) => {
             switch (sort_option) {
                 case SceneBrowserSorting.NUM_OBJECTS:
-                    return b.num_objects - a.num_objects;
+                    return (b.num_objects - a.num_objects) * fct;
 
                 case SceneBrowserSorting.NUM_RELATIONS:
-                    return b.num_relations - a.num_relations;
+                    return (b.num_relations - a.num_relations) * fct;
 
                 case SceneBrowserSorting.NUM_OBJECTS_PLUS_RELATIONS:
                     return (
                         b.num_objects +
                         b.num_relations -
                         (a.num_objects + a.num_relations)
-                    );
+                    ) * fct;
 
                 case SceneBrowserSorting.ID:
                 default:
-                    return parseInt(a.id) - parseInt(b.id);
+                    return (parseInt(b.id) - parseInt(a.id)) * fct;
             }
+        });
+
+        this.elems2 = this.elems?.filter((a) => {
+          if (this.exclude_zeros) {
+            switch (sort_option) {
+                  case SceneBrowserSorting.NUM_OBJECTS:
+                      return (a.num_objects > 0);
+
+                  case SceneBrowserSorting.NUM_RELATIONS:
+                      return (a.num_relations > 0);
+
+                  case SceneBrowserSorting.NUM_OBJECTS_PLUS_RELATIONS:
+                      return (a.num_objects + a.num_relations > 0);
+                  case SceneBrowserSorting.ID:
+                  default:
+                      return (parseInt(a.id) > 0);
+              }
+          } else {
+            return true;
+          }
         });
 
         this.splitElementsIntoLines();
@@ -217,11 +254,11 @@ export class SceneBrowserComponent implements OnInit, AfterViewInit {
     }
 
     private splitElementsIntoLines() {
-        if (!this.elems || !this.scroller) return;
+        if (!this.elems2 || !this.scroller) return;
 
         this.elem_lines = [];
 
-        const elems_left = Object.assign([], this.elems);
+        const elems_left = Object.assign([], this.elems2);
 
         let i = 0;
         let line = -1;

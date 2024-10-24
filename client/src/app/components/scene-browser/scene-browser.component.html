@@ -235,6 +235,20 @@
                         {{ sorting_options_labels[sorting_option] }}
                     </mat-radio-button>
                 </mat-radio-group>
+                <input
+                    type="checkbox"
+                    id="orderBox"
+                    [checked]="sort_order"
+                    (change)="switchOrder()"/>
+                <label for="orderBox">Sort DESC</label><br>
+
+                <input
+                    type="checkbox"
+                    id="zeroBox"
+                    [checked]="exclude_zeros"
+                    (change)="switchZeros()"/>
+                <label for="zeroBox">Exclude Zeros</label><br>
+
             </span>
             <span style="display: inherit">
                 <button

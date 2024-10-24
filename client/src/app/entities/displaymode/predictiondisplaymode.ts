@@ -242,6 +242,7 @@ export class PredictionDisplayMode extends ExplorationTypeDisplayMode {
     }
 
     private redraw_update_widgets() {
+        this.timelineRef!.instance.showTimeline = this.controller.animation_bar_visible;
         this.timelineRef!.instance.num_steps =
             Object.values(this.controller.scene?.graph?.all_relations || {})[0]
                 ?.weights.length || 0;
@@ -295,11 +296,11 @@ export class PredictionDisplayMode extends ExplorationTypeDisplayMode {
                 return d.id;
             })
             .attr('stroke', environment.colors.graph_edge_stroke_alt)
-            .attr('visibility', (d) => {
+            .attr('visibility', this.controller.graph_visible ? (d) => {
                 return SceneGraphRelationVisibility.HIDDEN == d.visibility
                     ? 'hidden'
                     : 'inherit';
-            })
+            } : 'hidden')
             .attr('d', (d) => {
                 return component.calculatePathForRelation(d);
             })
@@ -369,12 +370,12 @@ export class PredictionDisplayMode extends ExplorationTypeDisplayMode {
             .attr('description', (d) => {
                 return d.name;
             })
-            .attr('stroke', environment.colors.graph_edge_stroke)
-            .attr('visibility', (d) => {
+            .attr('stroke', this.controller.strokecol)
+            .attr('visibility', this.controller.graph_visible ? (d) => {
                 return SceneGraphRelationVisibility.HIDDEN == d.visibility
                     ? 'hidden'
                     : 'inherit';
-            })
+            } : 'hidden')
             .attr('d', (d) => {
                 return component.calculatePathForRelation(d);
             })
@@ -390,7 +391,7 @@ export class PredictionDisplayMode extends ExplorationTypeDisplayMode {
             .attr('fill', (d) => {
                 return component.preferences.direction_indication ==
                     PredictionDisplayModeDirectionIndication.THICKNESS
-                    ? environment.colors.graph_edge_fill
+                    ? this.controller.strokecol
                     : 'transparent';
             })
             .style('opacity', (d) =>
@@ -407,10 +408,10 @@ export class PredictionDisplayMode extends ExplorationTypeDisplayMode {
     override calculateRadiusForObject(object: SceneGraphObject): number {
         switch (this.preferences.node_weight_indication) {
             case PredictionDisplayModeNodeWeightIndication.RADIUS:
-                return 30 * object.weight;
+                return 30 * object.weight * this.controller.fattening;
 
             case PredictionDisplayModeNodeWeightIndication.AREA:
-                return Math.sqrt((object.weight * 2000) / Math.PI);
+                return Math.sqrt((object.weight * 2000) / Math.PI) * this.controller.fattening;
 
             default:
                 return super.calculateRadiusForObject(object);
@@ -425,7 +426,7 @@ export class PredictionDisplayMode extends ExplorationTypeDisplayMode {
     // --------------------------------------------------------------------------
 
     calculateStrokeWidthForRelation(relation: SceneGraphRelation): string {
-        return '0.3px';
+        return (0.3 * this.controller.relfat).toString() + 'px';
     }
 
     calculatePathForRelation(relation: SceneGraphRelation): string {
@@ -562,8 +563,48 @@ export class PredictionDisplayMode extends ExplorationTypeDisplayMode {
         );
     }
 
+    override onRelationMouseOver(event: MouseEvent, rel_id: string) {
+        const scene_graph = this.controller.scene?.graph;
+        if (!scene_graph) return;
+
+        const rel = scene_graph.all_relations[rel_id];
+
+        this.showRelationTooltip(rel_id, event.pageX, event.pageY);
+
+        if (this.controller.nohideHighlight){
+          this.redraw();
+          return;
+        }
+
+        scene_graph.changeObjectsVisibility(
+            null,
+            SceneGraphObjectVisibility.HIDDEN
+        );
+        scene_graph.setObjectsVisibility(
+            [rel.from_obj_id, rel.to_obj_id],
+            SceneGraphObjectVisibility.HIGHLIGHTED
+        );
+
+        scene_graph.changeRelationsVisibility(
+            null,
+            SceneGraphRelationVisibility.HIDDEN
+        );
+        scene_graph.setRelationsVisibility(
+            [rel_id],
+            SceneGraphRelationVisibility.HIGHLIGHTED
+        );
+
+        this.redraw();
+    }
+
+
     override onObjectMouseOver(event: MouseEvent, obj_id: string) {
         this.showObjectTooltip(obj_id, event.pageX, event.pageY);
+
+        if (this.controller.nohideHighlight){
+          this.redraw();
+          return;
+        }
 
         const scene_graph = this.controller.scene?.graph;
         if (!scene_graph) return;

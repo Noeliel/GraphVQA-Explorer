@@ -217,13 +217,13 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
             .attr('description', (d) => {
                 return d.name;
             })
-            .attr('stroke', environment.colors.graph_edge_stroke)
+            .attr('stroke', this.controller.strokecol)
 
-            .attr('visibility', (d) => {
+            .attr('visibility', this.controller.graph_visible ? (d) => {
                 return SceneGraphRelationVisibility.HIDDEN == d.visibility
                     ? 'hidden'
                     : 'inherit';
-            })
+            } : 'hidden')
             .attr('d', (d) => {
                 return component.calculatePathForRelation(d);
             })
@@ -240,7 +240,7 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
             .attr('fill', (d) => {
                 return component.preferences.direction_indication ==
                     GroundTruthDisplayModeDirectionIndication.THICKNESS
-                    ? environment.colors.graph_edge_fill
+                    ? this.controller.strokecol
                     : 'transparent';
             });
 
@@ -267,7 +267,7 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
         new_pairs
             .append('svg:text')
             .attr('class', 'center-label-shadow')
-            .style('font', '6px sans-serif')
+            .style('font', (9).toString() + 'px sans-serif')
             .style('pointer-events', 'none')
             .style('stroke', '#333')
             .style('fill', '#fff')
@@ -277,7 +277,7 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
         new_pairs
             .append('svg:text')
             .attr('class', 'center-label')
-            .style('font', '6px sans-serif')
+            .style('font', (9).toString() + 'px sans-serif')
             .style('pointer-events', 'none')
             .style('fill', '#fff');
 
@@ -294,7 +294,7 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
         labels_update
             .selectChild('text.center-label')
             .attr('x', (d) => {
-                return d.center.x + 5;
+                return d.center.x + 2 + 3 * this.controller.fattening;
             })
             .attr('y', (d) => {
                 return d.center.y + 2;
@@ -306,7 +306,7 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
         labels_update
             .selectChild('text.center-label-shadow')
             .attr('x', (d) => {
-                return d.center.x + 5;
+                return d.center.x + 2 + 3 * this.controller.fattening;
             })
             .attr('y', (d) => {
                 return d.center.y + 2;
@@ -315,12 +315,12 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
                 return d.name;
             });
 
-        labels_update.style('visibility', (d) => {
+        labels_update.attr('visibility', this.controller.graph_visible ? (d) => {
             return !this.preferences.show_object_labels ||
                 SceneGraphObjectVisibility.HIDDEN == d.visibility
                 ? 'hidden'
                 : 'visible';
-        });
+        } : 'hidden');
 
         return labels_update;
     }
@@ -478,7 +478,7 @@ export class GroundTruthDisplayMode extends ExplorationTypeDisplayMode {
     }
 
     calculateStrokeWidthForRelation(relation: SceneGraphRelation): string {
-        return '0.3px';
+        return (0.3 * this.controller.relfat).toString() + 'px';
     }
 
     calculatePathForRelation(relation: SceneGraphRelation): string {

@@ -73,6 +73,36 @@ export class GraphVisComponent
     @ViewChild('toggleBackgroundButton', { read: ElementRef, static: true })
     private toggleBackgroundButton!: ElementRef<HTMLButtonElement>;
 
+    @ViewChild('toggleGraphButton', { read: ElementRef, static: true })
+    private toggleGraphButton!: ElementRef<HTMLButtonElement>;
+
+    @ViewChild('toggleGrayButton', { read: ElementRef, static: true })
+    private toggleGrayButton!: ElementRef<HTMLButtonElement>;
+
+
+    @ViewChild('incBrightButton', { read: ElementRef, static: true })
+    private incBrightButton!: ElementRef<HTMLButtonElement>;
+
+    @ViewChild('decBrightButton', { read: ElementRef, static: true })
+    private decBrightButton!: ElementRef<HTMLButtonElement>;
+
+    @ViewChild('incStrokeButton', { read: ElementRef, static: true })
+    private incStrokeButton!: ElementRef<HTMLButtonElement>;
+
+    @ViewChild('decStrokeButton', { read: ElementRef, static: true })
+    private decStrokeButton!: ElementRef<HTMLButtonElement>;
+
+    @ViewChild('switchColorButton', { read: ElementRef, static: true })
+    private switchColorButton!: ElementRef<HTMLButtonElement>;
+
+    @ViewChild('toggleEdgeAnimationButton', { read: ElementRef, static: true })
+    private toggleEdgeAnimationButton!: ElementRef<HTMLButtonElement>;
+
+    @ViewChild('toggleHideModePredictionButton', { read: ElementRef, static: true })
+    private toggleHideModePredictionButton!: ElementRef<HTMLButtonElement>;
+
+
+
     viewIsZoomed = false;
     shouldShowZoomPanButton = false;
     shouldShowToggleBackgroundButton = false;
@@ -419,6 +449,8 @@ export class GraphVisComponent
 
         this.svgInner?.attr('transform', null);
         this.viewIsZoomed = false;
+
+        super.resetOptions();
     }
 
     public setupSVGMouseDragEvents() {

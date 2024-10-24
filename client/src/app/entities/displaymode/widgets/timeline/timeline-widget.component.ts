@@ -21,6 +21,7 @@ export class TimelineWidgetComponent implements OnInit, OnDestroy {
     _steps: Array<number> = [];
 
     private animationTimer = interval(650);
+    public showTimeline = false;
 
     private valueChangeSubscription?: Subscription;
     private animationSubscription?: Subscription;
@@ -68,7 +69,7 @@ export class TimelineWidgetComponent implements OnInit, OnDestroy {
     }
 
     get shouldShowTimelineControl(): boolean {
-        return true;
+        return this.showTimeline;
     }
 
     get num_steps(): number {
