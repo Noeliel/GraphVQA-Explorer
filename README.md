@@ -175,9 +175,9 @@ Our project is licensed under the [MIT License](LICENSE.md).
 
 ## Citation
 
-When referencing our work, please cite the paper *Visual Analysis of Scene-Graph-Based Visual Question Answering*.
+When referencing our work, please cite the papers *Visual Analysis of Scene-Graph-Based Visual Question Answering* and *Visual explainable artificial intelligence for graph-based visual question answering and scene graph curation*.
 
-N. Schäfer, S. Künzel, T. Munz, P. Tilli, N. T. Vu, and D. Weiskopf. Visual Analysis of Scene-Graph-Based Visual Question Answering. Proceedings of the 16th International Symposium on Visual Information Communication and Interaction (VINCI 2023). 2023. 
+N. Schäfer, S. Künzel, T. Munz, P. Tilli, N. T. Vu, and D. Weiskopf. Visual Analysis of Scene-Graph-Based Visual Question Answering. Proceedings of the 16th International Symposium on Visual Information Communication and Interaction (VINCI 2023). 2023. https://doi.org/10.1145/3615522.3615547
 
 ```
 @article{vinci2023vqa,
@@ -186,3 +186,15 @@ N. Schäfer, S. Künzel, T. Munz, P. Tilli, N. T. Vu, and D. Weiskopf. Visual An
   journal   = {The 16th International Symposium on Visual Information Communication and Interaction (VINCI 2023)},
   year      = {2023}
 }
+```
+
+Künzel, S., Munz-Körner, T., Tilli, P. et al. Visual explainable artificial intelligence for graph-based visual question answering and scene graph curation. Vis. Comput. Ind. Biomed. Art 8, 9 (2025). https://doi.org/10.1186/s42492-025-00185-y
+
+```
+@article{vciba2025veai,
+  author    = {Künzel, Sebastian and Munz-Körner, Tanja and Tilli, Pascal and Schäfer, Noel and Vidyapu, Sandeep and Vu, Ngoc Thang and Weiskopf, Daniel},
+  title     = {Visual explainable artificial intelligence for graph-based visual question answering and scene graph curation},
+  journal   = {Visual Computing for Industry, Biomedicine, and Art volume 8, Article number: 9 (2025)},
+  year      = {2025}
+}
+```
